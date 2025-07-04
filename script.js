@@ -187,7 +187,7 @@
 // Expand the PDF
             pdfWrapper.classList.remove('collapsed');
 // Set the height back to its expanded height (or auto, but fixed height is often smoother for transitions)
-            pdfWrapper.style.height = 90vh ; // Use default viewer height or 800px
+            pdfWrapper.style.height = '90vh' ; // Use default viewer height or 800px
             pdfToggleButton.textContent = 'Collapse';
         }
         isPdfVisible = !isPdfVisible; // Toggle the state
