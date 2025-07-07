@@ -193,6 +193,36 @@
         isPdfVisible = !isPdfVisible; // Toggle the state
     });
 
+           document.addEventListener('DOMContentLoaded', () => {
+            const certificates = document.querySelectorAll('.certificate');
+            const revealedCertificates = new Set();
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !revealedCertificates.has(entry.target)) {
+                        const certIndex = Array.from(certificates).indexOf(entry.target);
+                        // --- ADJUSTED JAVASCRIPT DELAY HERE ---
+                        const delay = certIndex * 600; // Increased from 500ms to 600ms per item
+
+                        setTimeout(() => {
+                            entry.target.classList.add('reveal');
+                            revealedCertificates.add(entry.target);
+                        }, delay);
+                    }
+                });
+            }, observerOptions);
+
+            certificates.forEach(certificate => {
+                observer.observe(certificate);
+            });
+        });
+
     // Optional: If you want to load the PDF only when expanded (for performance)
     // pdfViewer.src = ''; // Initially empty
     // pdfToggleButton.addEventListener('click', () => {
