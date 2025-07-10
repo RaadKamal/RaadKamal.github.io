@@ -193,49 +193,31 @@
         isPdfVisible = !isPdfVisible; // Toggle the state
     });
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all elements with the .certificate class
-    const certificates = document.querySelectorAll('.certificate');
+            const certificates = document.querySelectorAll('.certificate');
+            const revealedCertificates = new Set();
 
-    // Configuration for the Intersection Observer
-    const observerOptions = {
-        root: null, // Observes intersections relative to the viewport
-        rootMargin: '0px',
-        threshold: 0.1 // Triggers when 10% of the element is visible
-    };
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-    // Callback function to execute when an element is observed
-    const handleIntersection = (entries, observer) => {
-        entries.forEach((entry, index) => {
-            // Check if the element is intersecting (visible)
-            if (entry.isIntersecting) {
-                // Calculate a delay based on the element's order.
-                // The 'stagger' provides a nice cascading effect.
-                const delay = index * 200; // 200ms delay between each item
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !revealedCertificates.has(entry.target)) {
+                        const certIndex = Array.from(certificates).indexOf(entry.target);
+                        // --- ADJUSTED JAVASCRIPT DELAY HERE ---
+                        const delay = certIndex * 600; // Increased from 500ms to 600ms per item
 
-                // Apply the 'reveal' class after the calculated delay
-                setTimeout(() => {
-                    entry.target.classList.add('reveal');
-                }, delay);
+                        setTimeout(() => {
+                            entry.target.classList.add('reveal');
+                            revealedCertificates.add(entry.target);
+                        }, delay);
+                    }
+                });
+            }, observerOptions);
 
-                // Stop observing the element after it has been revealed
-                observer.unobserve(entry.target);
-            }
+            certificates.forEach(certificate => {
+                observer.observe(certificate);
+            });
         });
-    };
-
-    // Create a new Intersection Observer with the callback and options
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    // Start observing each certificate element
-    certificates.forEach(certificate => {
-        observer.observe(certificate);
-    });
-});
-    // Optional: If you want to load the PDF only when expanded (for performance)
-    // pdfViewer.src = ''; // Initially empty
-    // pdfToggleButton.addEventListener('click', () => {
-    //     if (!isPdfVisible && pdfViewer.src === '') {
-    //         pdfViewer.src = 'your-document.pdf#toolbar=0&navpanes=0';
-    //     }
-    //     // ... rest of the toggle logic ...
-    // });
