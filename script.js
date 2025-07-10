@@ -192,32 +192,36 @@
         }
         isPdfVisible = !isPdfVisible; // Toggle the state
     });
+
 document.addEventListener('DOMContentLoaded', () => {
-            const certificates = document.querySelectorAll('.certificate');
-            const revealedCertificates = new Set();
+    const certificates = document.querySelectorAll('.certificate');
+    const revealedCertificates = new Set(); // To keep track of already revealed certificates
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+    const observerOptions = {
+        root: null, // Observe relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+    };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && !revealedCertificates.has(entry.target)) {
-                        const certIndex = Array.from(certificates).indexOf(entry.target);
-                        // --- ADJUSTED JAVASCRIPT DELAY HERE ---
-                        const delay = certIndex * 600; // Increased from 500ms to 600ms per item
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            // Check if the element is intersecting AND hasn't been revealed yet
+            if (entry.isIntersecting && !revealedCertificates.has(entry.target)) {
+                const certIndex = Array.from(certificates).indexOf(entry.target);
+                // Calculate delay based on its index
+                const staggerDelay = 600; // milliseconds between each certificate
+                const delay = certIndex * staggerDelay;
 
-                        setTimeout(() => {
-                            entry.target.classList.add('reveal');
-                            revealedCertificates.add(entry.target);
-                        }, delay);
-                    }
-                });
-            }, observerOptions);
-
-            certificates.forEach(certificate => {
-                observer.observe(certificate);
-            });
+                setTimeout(() => {
+                    entry.target.classList.add('reveal'); // Add the 'reveal' class
+                    revealedCertificates.add(entry.target); // Mark as revealed
+                }, delay);
+            }
         });
+    }, observerOptions);
+
+    // Start observing each certificate
+    certificates.forEach(certificate => {
+        observer.observe(certificate);
+    });
+});
