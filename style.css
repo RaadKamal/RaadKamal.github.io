@@ -260,9 +260,9 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .skill-bar {
+      /*  .skill-bar {
             transition: width 1.5s ease-in-out;
-        }
+        } */
 
 
         .nav-link {
