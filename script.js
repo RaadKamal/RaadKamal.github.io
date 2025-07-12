@@ -107,7 +107,7 @@
 
     // Animate skill bars on scroll
 
-    const skillBars = document.querySelectorAll('.skill-bar');
+  /*  const skillBars = document.querySelectorAll('.skill-bar');
 
 
 
@@ -154,7 +154,7 @@
         observer.observe(section);
 
     });
-
+*/
     document.addEventListener('DOMContentLoaded', function() {
 
         const sendMessageButton = document.getElementById('sendMessageButton');
