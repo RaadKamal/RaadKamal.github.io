@@ -28,6 +28,7 @@
             margin-top: 10px;
             overflow: hidden; /* Hide overflow when collapsed */
             transition: height 0.3s ease-in-out; /* Smooth transition for height */
+            height: 70vh
         }
 
         .pdf-container.collapsed {
