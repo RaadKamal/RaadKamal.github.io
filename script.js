@@ -483,4 +483,38 @@ ScrollReveal().reveal('.certificate', {
 
 });
 
+  const nameEl = document.getElementById('current-document-name');
+  const docs = Array.from(document.querySelectorAll('.document'));
+
+  function getTranslateXPercent(matrix) {
+    if (!matrix || matrix === 'none') return -100;
+    const values = matrix.match(/matrix.*\((.+)\)/)[1].split(', ');
+    const translateX = parseFloat(values[4]); // pixel offset
+    const containerWidth = document.querySelector('.container').offsetWidth;
+    return (translateX / containerWidth) * 100;
+  }
+
+  function updateName() {
+    // find doc with highest opacity
+    let visibleDoc = null;
+    let maxOpacity = 0;
+    docs.forEach(doc => {
+      const style = getComputedStyle(doc);
+      const opacity = parseFloat(style.opacity);
+      if (opacity > maxOpacity) {
+        maxOpacity = opacity;
+        visibleDoc = doc;
+      }
+    });
+
+    if (visibleDoc) {
+      const img = visibleDoc.querySelector('img');
+      if (img) nameEl.textContent = img.alt;
+    }
+
+    requestAnimationFrame(updateName);
+  }
+
+  updateName();
+
     
