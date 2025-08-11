@@ -746,15 +746,11 @@
 
 
 .certificate-info {
-
-    flex: 1;
-
-    text-align: left;
-
-    min-width: 250px; /* Ensures text area has enough space */
-
+  flex: 1;
+  /* Change this line to center the text */
+  text-align: center;
+  min-width: 250px;
 }
-
 
 
 .certificate-info h3 {
@@ -832,5 +828,6 @@
     }
 
 }
+
 
 
