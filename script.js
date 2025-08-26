@@ -477,8 +477,6 @@ ScrollReveal().reveal('.certificate', {
 
     interval: 1200, // Longer time between reveals
 
-    cleanup: true,
-
     easing: 'ease-in-out',
 
 
