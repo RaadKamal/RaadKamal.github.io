@@ -447,11 +447,13 @@
 
 ScrollReveal({
 
-    reset: False,
+    reset: true,
 
     distance: '60px',
 
-    duration: 200,
+    duration: 1000,
+
+    delay: 200,
 
     easing: 'ease-in-out',
 
