@@ -447,7 +447,7 @@
 
 ScrollReveal({
 
-    reset: true,
+    reset: false,
 
     distance: '60px',
 
