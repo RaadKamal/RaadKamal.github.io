@@ -451,6 +451,8 @@ ScrollReveal({
 
     distance: '60px',
 
+    duration: 200,
+
     easing: 'ease-in-out',
 
     mobile: true
