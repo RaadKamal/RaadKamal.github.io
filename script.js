@@ -475,6 +475,9 @@ ScrollReveal().reveal('.certificate', {
 
     cleanup: true,
 
+    easing: 'ease-in-out',
+
+
  
 
 });
