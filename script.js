@@ -467,7 +467,7 @@ ScrollReveal({
 
 ScrollReveal().reveal('.certificate', {
 
-    origin: 'left',
+    origin: 'right',
 
     distance: '100px',
 
