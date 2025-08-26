@@ -475,7 +475,7 @@ ScrollReveal().reveal('.certificate', {
 
     delay: (el, i) => 200 + (i * 100), // Increased stagger delay by 400ms for each certificate
 
-    interval: 1200, // Longer time between reveals
+    interval: 100, // Longer time between reveals
 
     cleanup: true,
 
