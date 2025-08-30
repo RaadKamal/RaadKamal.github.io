@@ -473,7 +473,7 @@ ScrollReveal().reveal('.certificate', {
 
     duration: 1800, // Longer animation duration
 
-    delay: (el, i) => 1100 + (i * 400), // Increased stagger delay by 400ms for each certificate
+    delay: (el, i) => 2100 + (i * 400), // Increased stagger delay by 400ms for each certificate
 
     interval: 1500, // Longer time between reveals
 
