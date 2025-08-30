@@ -483,6 +483,6 @@ ScrollReveal().reveal('.certificate', {
  
 
 });
-const glossyCards = document.querySelectorAll('.glossy');
+
 
 
