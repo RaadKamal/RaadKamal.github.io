@@ -471,11 +471,11 @@ ScrollReveal().reveal('.certificate', {
 
     distance: '100px',
 
-    duration: 1500, // Longer animation duration
+    duration: 1800, // Longer animation duration
 
-    delay: (el, i) => 800 + (i * 400), // Increased stagger delay by 400ms for each certificate
+    delay: (el, i) => 1100 + (i * 400), // Increased stagger delay by 400ms for each certificate
 
-    interval: 1200, // Longer time between reveals
+    interval: 1500, // Longer time between reveals
 
     easing: 'ease-in-out',
 
