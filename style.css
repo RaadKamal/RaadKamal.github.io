@@ -663,6 +663,8 @@
 
 /* --- Certificates Section Styles --- */
 
+/* --- Certificates Section Styles --- */
+
 .certificates-container {
     width: 100%;
     max-width: 900px;
@@ -691,7 +693,7 @@
     flex-wrap: wrap;
     opacity: 0;
 }
-
+/* ... (rest of your CSS code) ... */
 
 /* Responsive adjustments */
 
@@ -806,5 +808,6 @@
     }
 
 }
+
 
 
