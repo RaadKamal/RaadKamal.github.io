@@ -664,55 +664,33 @@
 /* --- Certificates Section Styles --- */
 
 .certificates-container {
-
     width: 100%;
-
     max-width: 900px;
-
-    text-align: center;
-
-    margin-top: 50px;
-
-    margin-bottom: 50px;
-
     margin-left: auto;
-
     margin-right: auto;
-
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* This is the key change: use CSS Grid for a clean layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
-
-
 
 .certificate {
-
     background-color: #fff;
-
     border: 10px solid #ddd;
-
     border-radius: 8px;
-
     padding: 25px;
-
-    margin-bottom: 40px;
-
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-
+    /* Your existing flexbox for content inside the certificate card */
     display: flex;
-
     flex-direction: row;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 25px;
-
     flex-wrap: wrap;
-
     opacity: 0;
-
 }
-
 
 
 /* Responsive adjustments */
@@ -828,4 +806,5 @@
     }
 
 }
+
 
