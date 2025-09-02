@@ -497,8 +497,15 @@ function downloadMultipleFiles(fileUrls) {
 
 // Usage example:
 const myFiles = [
-  'file1.pdf',
-  'file2.jpg',
-  'file3.png'
+  'Docker.jpg',
+  'Docker_Your_First_Project.jpg',
+  'Learning_Docker.jpg'
+  'Learning_Docker_Compose.jpg'
+  'Neo4J.jpg'
+  'Programming_Foundations_APIs_and_Web_Services.jpg'
+  'React.jpg'
+  'SSL.jpg'
+  'The Complete Python Network Programming Course.jpg'
+  'Vue.js_Creating_and_Hosting_a_Full-Stack_Site.jpg'
 ];
 
