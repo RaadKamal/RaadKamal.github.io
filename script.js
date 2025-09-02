@@ -484,5 +484,21 @@ ScrollReveal().reveal('.certificate', {
 
 });
 
+function downloadMultipleFiles(fileUrls) {
+  fileUrls.forEach(url => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = url.split('/').pop(); // Extracts filename from URL
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
 
+// Usage example:
+const myFiles = [
+  'file1.pdf',
+  'file2.jpg',
+  'file3.png'
+];
 
