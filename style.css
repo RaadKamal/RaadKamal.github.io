@@ -13,6 +13,7 @@
             min-height: 100vh;
             color: #e5e7eb;
             opacity: 1.0;
+            background:rgba(0,0,0,.9);
           
 
         }
@@ -813,6 +814,7 @@
     }
 
 }
+
 
 
 
