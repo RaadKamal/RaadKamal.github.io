@@ -1,6 +1,21 @@
 
           // Mobile menu toggleMore actions
 
+  (function () {
+    // only do this on phones/tablets
+    if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+
+    var target = 1280;                           // your “desktop” design width
+    var scale = Math.min(1, window.innerWidth / target);
+
+    var meta = document.querySelector('meta[name="viewport"]');
+    if (!meta) { meta = document.createElement('meta'); meta.name = 'viewport'; document.head.appendChild(meta); }
+
+    // keep it accessible (don’t block zoom); browsers will auto-zoom out
+    meta.setAttribute('content', `width=${target}, initial-scale=${scale}, viewport-fit=cover`);
+  })();
+
+
     document.getElementById('menu-btn').addEventListener('click', function() {
 
         this.classList.toggle('active');
@@ -27,7 +42,8 @@
 
     });
 
-           document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('DOMContentLoaded', () => {
 
             const typewriterElement = document.getElementById('myTypewriterText');
 
