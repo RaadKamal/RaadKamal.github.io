@@ -22,7 +22,7 @@
             box-shadow: 0 0 0 2px darkgreen; /* Add a dark green "border" using box-shadow */
         }
         .gradient-text {
-            background: linear-gradient(90deg, #ef4444, #f97316);
+            background: linear-gradient(90deg,#ff0000e5,#ff8c00e5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -385,7 +385,7 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(200, 50, 50, 0.8), rgba(210, 80, 15, 0.8));
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.9),rgba(255, 140, 0, 0.9)); 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -428,7 +428,7 @@
             position: absolute; /* Position it relative to the nearest positioned ancestor (body in this case) */
             bottom: 20px; /* 20px from the bottom of the viewport */
             right: 20px; /* 20px from the right of the viewport */
-            background: linear-gradient(135deg, rgba(255, 140, 0, 0.9), rgba(255, 165, 0, 0.9)); /* Orange gradient background */
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.9), rgba(255, 140, 0, 0.9)); /* Orange gradient background */
             width: 70px; /* Fixed width */
             height: 70px; /* Fixed height */
             border-radius: 50%; /* Reverted to 50% for a perfect circle */
@@ -813,6 +813,7 @@
     }
 
 }
+
 
 
 
