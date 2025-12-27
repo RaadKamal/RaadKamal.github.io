@@ -389,7 +389,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 40px rgba(139, 0, 0, 0.5);
+            box-shadow: 0 0 40px rgb(255, 127, 80, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.25);
         }
@@ -813,4 +813,5 @@
     }
 
 }
+
 
