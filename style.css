@@ -385,7 +385,7 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(139, 0, 0, 0.9), rgba(160, 82, 45, 0.9));
+            background: linear-gradient(135deg, #333333e5, #008000e5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -813,6 +813,7 @@
     }
 
 }
+
 
 
 
