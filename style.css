@@ -22,7 +22,7 @@
             box-shadow: 0 0 0 2px darkgreen; /* Add a dark green "border" using box-shadow */
         }
         .gradient-text {
-            background: linear-gradient(90deg, #333333e5, #008000e5);
+            background: linear-gradient(90deg, #2c3e50e5, #008000e5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -813,6 +813,7 @@
     }
 
 }
+
 
 
 
