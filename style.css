@@ -503,7 +503,7 @@
         }
 
         .contact-icon {
-            background: linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 165, 0, 0.8));
+            background: linear-gradient(135deg, #1a1a1ae5, #008000e5);
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -515,7 +515,7 @@
         }
 
         .about-icon {
-            background: linear-gradient(135deg, rgba(255, 0, 0, 0.8), rgba(255, 165, 0, 0.8));
+            background: linear-gradient(135deg, #1a1a1ae5, #008000e5);
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -813,6 +813,7 @@
     }
 
 }
+
 
 
 
