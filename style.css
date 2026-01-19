@@ -1,0 +1,825 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            margin: 0;           /* remove browser default margin */
+            padding: 0;     
+            font-family: "Allerta Stencil", Sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100vw;
+            background-color: #0a0a0a;
+            background-image:
+                  linear-gradient(to right, black 0%, black 50%, black 100%);
+            min-height: 100vh;
+            color: #e5e7eb;
+            opacity: 1.0; 
+
+
+        }
+        #sendMessageButton:active,
+        #sendMessageButton:focus {
+            outline: none; /* Remove the default focus outline */
+            box-shadow: 0 0 0 2px darkgreen; /* Add a dark green "border" using box-shadow */
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #1a1a1ae5, #008000e5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pdf-container {
+            border: 3px solid #0047AB;
+            margin-top: 10px;
+            overflow: hidden; /* Hide overflow when collapsed */
+            transition: height 0.3s ease-in-out; /* Smooth transition for height */
+            height: 70vh
+        }
+
+        .pdf-container.collapsed {
+            height: 155px; /* Or a small initial height, e.g., 50px for a preview */
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%; /* Default height when expanded */
+            border: none;
+        }
+
+        #pdfWrapper {
+            /* ... (existing styles) ... */
+            margin-top: 50px;    /* Adds 20 pixels of space above the PDF wrapper */
+            margin-bottom: 50px; /* Adds 20 pixels of space below the PDF wrapper */
+        }
+
+        .toggle-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .toggle-button:hover {
+            background-color: #32CD32;
+        }
+
+        /* Basic styling for the body */
+
+        /* Orange Glow Elements */
+        .orange-glow {
+            transition: all 0.3s ease;
+        }
+
+        .orange-glow:hover {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.7);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
+        }
+        /* Ensure your Tailwind CSS is imported or linked before this CSS */
+
+        /* Keyframes for blinking opacity */
+        @keyframes blink-animation {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .blinking-dot {
+            /* Make the <i> tag a visible circle */
+            display: inline-block; /* Essential to give it width/height */
+            width: 8px; /* Size of the dot */
+            height: 8px;
+            background-color: #ff0000; /* A red color for the dot */
+            border-radius: 50%; /* Makes it a circle */
+            margin-right: 8px; /* Space between the dot and text */
+
+            /* Apply the blinking animation */
+            animation: blink-animation 1s steps(1, start) infinite;
+        }
+
+
+
+
+        .glowing-text {
+
+            color: red; /* The base color of the text itself */
+
+            font-size: 1.2em; /* Adjust text size as needed */
+
+
+
+            /* Add a subtle, consistent red glow. This glow won't fade with the text's opacity. */
+
+            text-shadow:
+
+                    0 0 10px rgba(255, 0, 0, 0.7),
+
+                    0 0 20px rgba(255, 0, 0, 0.5);
+
+
+
+            /*
+            
+                        * Applies the animation:
+            
+                        * - 'subtle-fade': The name of our animation defined below.
+            
+                        * - '3s': The duration of one full fade cycle (fade down AND fade up).
+            
+                        * - 'infinite': The animation will repeat forever.
+            
+                        * - 'ease-in-out': This timing function makes the animation start slowly,
+            
+                        * speed up in the middle, and slow down at the end, for a smooth fade.
+            
+                        */
+
+            animation: subtle-fade 3s infinite ease-in-out;
+
+        }
+
+
+
+        /*
+        
+                * Keyframes for the 'subtle-fade' animation:
+        
+                * Defines how the text's opacity changes over the animation's duration.
+        
+                */
+
+        @keyframes subtle-fade {
+
+            0% {
+
+                opacity: 0.2; /* Start visible, but very faint */
+
+            }
+
+            50% {
+
+                opacity: 1; /* Fully visible at the midpoint */
+
+            }
+
+            100% {
+
+                opacity: 0.2; /* Fade back to very faint */
+
+            }
+
+        }
+
+        .icon-item-js {
+            opacity: 0;
+            transform: scale(0.5) rotate(-15deg); /* Optional: different starting appearance */
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        .icon-item-js.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Use viewport width */
+            height: 100vh; /* Use viewport height */
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .background-video video {
+            /* Cover the viewport while maintaining aspect ratio */
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; /* Important for scaling */
+            position: fixed; /* Ensure it stays fullscreen */
+            top: 0;
+            left: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
+        /* Mobile menu button animation */
+        #menu-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            width: 24px;
+            height: 24px;
+        }
+
+        #menu-btn .menu-icon,
+        #menu-btn .close-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        #menu-btn .close-icon {
+            opacity: 0;
+        }
+
+        #menu-btn.active .menu-icon {
+            opacity: 0;
+        }
+
+        #menu-btn.active .close-icon {
+            opacity: 1;
+        }
+
+        /* Enhanced Glassmorphism */
+        .glass-card {
+            background: rgba(15, 15, 15, 0.15);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 20px;
+
+            box-shadow: 0 8px 42px 0 rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+            color: #f3f4f6;
+        }
+
+        .glass-card:hover {
+            background: rgba(0, 0, 0, 0);
+            box-shadow: 0 8px 42px 0 rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .glass-accent {
+            background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+      /*  .skill-bar {
+            transition: width 1.5s ease-in-out;
+        } */
+
+
+        .nav-link {
+            position: relative;
+            color: #f3f4f6;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #ef4444, #f97316);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .11em solid #301363;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation:
+                typing 3.5s steps(var(--characters, 40), end) 1 forwards, /* Changed 'infinite' to '1 forwards' */
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #301363; } /* Added 50% for visibility if it was missing */
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, #1a1a1ae5, #008000e5);
+            border-radius: 2px;
+        }
+
+        input, textarea {
+            background-color: rgba(15, 15, 15, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f3f4f6; 
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            background-color: rgba(25, 25, 25, 0.3);
+            border-color: #3b82f6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+        }
+
+        label {
+            color: #f3f4f6;
+        }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(15px);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+        /* Project card footer */
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 16px;
+        }
+
+        .project-live-demo {
+            margin-right: auto;
+        }
+
+        .project-code {
+            margin-left: auto;
+        }
+
+        .profile-circle {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #333333e5, #008000e5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px rgba(0, 128, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+        }
+        @keyframes spin {
+            from {
+                transform: rotateY(0deg); /* Start at 0 degrees rotation around Y-axis */
+            }
+            to {
+                transform: rotateY(360deg); /* End at 360 degrees rotation around Y-axis */
+            }
+        }
+
+        /* Define keyframes for the pulsating glow effect (the "air" around it) */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 165, 0, 0.6), 0 0 0px rgba(255, 165, 0, 0); /* Initial shadow and no outer glow */
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 165, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.4); /* Brighter shadow and subtle white outer glow */
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 165, 0, 0.6), 0 0 0px rgba(255, 165, 0, 0); /* Return to initial state */
+            }
+        }
+        .profile-badge {
+            position: absolute; /* Position it relative to the nearest positioned ancestor (body in this case) */
+            bottom: 20px; /* 20px from the bottom of the viewport */
+            right: 20px; /* 20px from the right of the viewport */
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.9), rgba(255, 140, 0, 0.9)); /* Orange gradient background */
+            width: 70px; /* Fixed width */
+            height: 70px; /* Fixed height */
+            border-radius: 50%; /* Reverted to 50% for a perfect circle */
+            display: flex; /* Use flexbox for centering content inside */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            /* Initial box-shadow will be overridden by the animation, but good for fallback */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px); /* Blurs content behind the badge */
+            border: 3px solid rgba(255, 255, 255, 0.4); /* Increased border thickness to 3px and made it slightly more opaque */
+            transform-style: preserve-3d; /* Ensure 3D transformations are rendered correctly */
+
+            /* Animation properties: spin and pulse-glow combined */
+            animation: spin 1s linear infinite, /* Main spinning animation */
+            pulse-glow 2s ease-in-out infinite alternate; /* Pulsating glow effect */
+            /* spin: The name of the @keyframes rule for rotation */
+            /* 1s: Duration of one spin cycle */
+            /* linear: Timing function for spin */
+            /* infinite: Spin repeats indefinitely */
+
+            /* pulse-glow: The name of the @keyframes rule for the glow */
+            /* 2s: Duration of one glow cycle */
+            /* ease-in-out: Timing function for glow (starts slow, speeds up, ends slow) */
+            /* infinite: Glow repeats indefinitely */
+            /* alternate: Animation reverses direction each cycle, creating a smooth pulse */
+        }
+
+        /* Styles for the content inside the badge (e.g., an icon or initial) */
+        .badge-content {
+            color: white; /* White text/icon color */
+            font-size: 2rem; /* Large font size for visibility */
+            font-weight: bold; /* Bold text */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+        }
+
+
+        /* Floating elements effect */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Social icons */
+        .social-icon {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-info-item {
+            background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            background: rgba(25, 25, 25, 0.3);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .contact-icon {
+            background: linear-gradient(135deg, #1a1a1ae5, #008000e5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            box-shadow: 0 0 20px rgba(0, 128, 0, 0.6);
+        }
+
+        .about-icon {
+            background: linear-gradient(135deg, #1a1a1ae5, #008000e5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            box-shadow: 0 0 20px rgba(0, 128, 0, 0.6);
+        }
+
+        .about-item {
+            background: rgba(20, 20, 20, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .about-item:hover {
+            background: rgba(25, 25, 25, 0.3);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        .glass-button-gradient {
+            /* Core glass morphism effect */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+
+            /* Semi-transparent white background for the "glass" */
+            background-color: rgba(255, 255, 255, 0.15);
+
+            /* Subtle border for definition */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            /* Gradient text */
+            background-image: linear-gradient(90deg, #00008B,#006400);/* Your gradient colors */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent; /* Make the text transparent to show the gradient */
+
+            /* Padding, rounded corners, font, etc. */
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: sans-serif; /* Or your preferred font */
+            font-weight: bold;
+            text-decoration: none; /* Remove underline if used on an <a> tag */
+            display: inline-block; /* Or block, depending on your layout */
+        }
+
+        .glass-button-gradient:hover {
+            /* Slightly darken the background on hover */
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* If you have custom glow-effect styles, they would also be defined separately */
+
+        /* Enhanced glow effect */
+        .glow-effect {
+            transition: all 0.3s ease;
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(34, 139, 34, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .glass-button:hover {
+            /* You can add specific hover styles that complement the Tailwind hover */
+            backdrop-filter: blur(12px); /* Slightly increase blur on hover */
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Enhanced navigation - Borderless */
+        .nav-glass {
+            background: rgba(15, 15, 15, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: none !important;
+        }
+
+        /* More pronounced glass effect for project cards */
+        .project-glass {
+            background: rgba(20, 20, 20, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Full width navigation */
+        .full-width-nav {
+            width: 100%;
+            padding-bottom: 0;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .super-flowing-glow {
+
+            width: auto; /* Example dimensions height: 100%; */
+
+            background-color: #333; /* For contrast */
+
+            border-radius: 7px; /* Optional: for a softer look */
+
+            margin: 50px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: white;
+
+            font-family: sans-serif;
+
+
+
+            /* Base glow */
+
+            box-shadow: 0 0 45px rgba(0, 191, 255, 0.6); /* Blue shade */
+
+            animation: superGlow 2.5s infinite ease-in-out alternate;
+
+        }
+
+
+
+        @keyframes superGlow {
+
+            0% {
+
+                box-shadow: 0 0 25px rgba(0, 191, 255, 0.6); /* Blue shade */
+
+            }
+
+            50% {
+
+                box-shadow: 0 0 55px rgba(0, 191, 255, 1), /* Darker, full intensity blue */
+
+                0 0 60px rgba(0, 191, 255, 0.4); /* Lighter, softer blue layer */
+
+            }
+
+            100% {
+
+                box-shadow: 0 0 25px rgba(0, 191, 255, 0.6); /* Blue shade */
+
+            }
+
+/* --- Certificates Section Styles --- */
+
+/* --- Certificates Section Styles --- */
+
+.certificates-container {
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* This is the key change: use CSS Grid for a clean layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.certificate {
+    background-color: #fff;
+    border: 10px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Your existing flexbox for content inside the certificate card */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+    opacity: 0;
+}
+/* ... (rest of your CSS code) ... */
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+
+    .certificate {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .certificate-info {
+
+        text-align: center;
+
+        margin-bottom: 20px;
+
+    }
+
+    .certificate-image {
+
+        max-width: 90%;
+
+    }
+
+}
+
+
+
+.certificate-info {
+  flex: 1;
+  /* Change this line to center the text */
+  text-align: center;
+  min-width: 250px;
+}
+
+
+.certificate-info h3 {
+
+    color: #2c3e50; /* Changed to a dark color for readability on white background */
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    font-size: 1.8em;
+
+    line-height: 1.3;
+
+}
+
+
+
+.certificate-image {
+
+    flex-shrink: 0; /* Prevents image from shrinking too much */
+
+    max-width: 50%; /* Image takes up to 50% of the container width */
+
+}
+
+
+
+.certificate-image img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 5px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    display: block; /* Removes extra space below image */
+
+}
+
+
+
+/* Responsive adjustments for smaller screens */
+
+@media (max-width: 768px) {
+
+    .certificate {
+
+        flex-direction: column; /* Stack items vertically on small screens */
+
+        align-items: center; /* Center items horizontally */
+
+    }
+
+
+
+    .certificate-info {
+
+        text-align: center;
+
+        margin-bottom: 20px;
+
+        min-width: unset; /* Remove min-width restriction */
+
+    }
+
+
+
+    .certificate-image {
+
+        max-width: 90%; /* Allows the image to be larger on smaller screens */
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <meta property="og:image" content="/prolink.jpeg">
+    <title>Mostafa Raad Kamal - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <link rel="icon" href="tablink.ico" type="image/ico" sizes="256x256" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="min-h-screen">
+<div class="background-video">
+    <video autoplay loop muted playsinline>
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</div>
+
+<!-- Navigation -->
+
+<nav class="fixed w-full z-50 nav-glass full-width-nav reveal-top" data-sr-duration="800" style="left: 0; right: 0;">
+
+    <div class="px-4 sm:px-6 lg:px-8">
+
+        <div class="flex justify-between h-24 items-center" style="border: none;">
+
+            <div class="flex items-center">
+
+                <img src="tablink.ico" alt="Welcome Image" width="45" height="45" style="vertical-align: middle; margin-right: 3px;">
+
+                <a class="text-xl font-bold gradient-text">Welcome to the Portfolio ! </a>
+
+            </div>
+
+                    <div class="hidden md:flex items-center space-x-8">
+                    
+                        <a href="#home" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Home</a>
+                    
+                        <a href="#about" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">About</a>
+                    
+                        <a href="#skills" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Skills</a>
+                    
+                        <a href="#projects" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Projects</a>
+                    
+                        <a href="My_Resume.pdf" download="My_Resume.pdf" class="glass-button border-2 border-violet-500 text-white-300 px-3 py-2 rounded-lg font-medium hover:bg-white-800 transition duration-300 glow-effect">Resume <i class="fa fa-download"></i></a>
+                    
+                        <a href="#contact" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Contact</a>
+                    
+                    </div>
+
+
+            <div class="md:hidden flex items-center ml-4">
+
+
+
+
+                
+                <button id="menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars menu-icon text-xl"></i>
+                    <i class="fas fa-times close-icon text-xl"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile menu -->
+
+
+
+    <div id="mobile-menu" class="hidden md:hidden" style="border: none;">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+            <a href="#home" class="nav-link hover:text-yellow-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">Home</a>
+            <a href="#about" class="nav-link hover:text-yellow-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">About</a>
+            <a href="#skills" class="nav-link hover:text-yellow-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">Skills</a>
+            <a href="#projects" class="nav-link hover:text-yellow-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">Projects</a>
+            <a href="My_Resume.pdf" download="My_Resume.pdf" class="nav-link hover:text-white-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">Resume <i class="fa fa-download"></i></a>
+            <a href="#contact" class="nav-link hover:text-yellow-300 px-3 py-2 block text-sm font-medium text-gray-300 rounded-md">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="pt-32 md:pt-40 pb-16 md:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="flex flex-col md:flex-row items-center md:gap-x-16">
+            <div class="w-full md:w-1/2 mb-10 md:mb-0 max-w-lg mx-auto md:max-w-none">
+                <h1 class="text-4xl md:text-4xl lg:text-5xl font-bold mb-12 reveal-left" data-sr-duration="800" data-sr-delay="300">
+                    Hey, I'm <span class="my-name gradient-text ">Mostafa Raad Kamal</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-bold mb-20 text-violet-700 typewriter">
+                    Full Stack Dev
+                </h2>
+
+
+
+                <div class="flex flex-wrap gap-4 reveal-left" data-sr-duration="800" data-sr-delay="600">
+                    <a href="#projects" class="glass-button bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 glow-effect">
+                        View My Work
+                    </a>                      
+
+                
+                                              
+                    <a href="#contact" class="glass-button border-2 border-violet-500 text-white-300 px-8 py-3 rounded-lg font-medium hover:bg-white-800 transition duration-300 glow-effect">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 mb-8 md:mb-0 flex justify-center float reveal-right" data-sr-duration="1000" data-sr-delay="400">
+                <div class="profile-circle">
+                    <img src="Profile1.jpg" alt="Raad Kamal" class="profile-img ">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1200">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Biography</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                Here is a root-cause analysis and  brief overview of my background.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center float">
+                <div class="profile-circle">
+                    <img src="Brand.png" alt="Raad Kamal" class="profile-img">
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-12 ">
+
+                <div class="project-glass p-6 rounded-xl mb-8 glow-effect">
+                    <p class="text-gray-300 text-justify tracking-wide mb-4">
+                        Raised by my elder mechanic brother, I was around both physical and digital systems at an early age. Since I had an affinity for complex systems, therefore it was an exciting intellectual validation for me excelling in Pure Science.
+                    </p>
+                    <p class="text-gray-300 text-justify tracking-wide ">
+                        My trajectory in software development was initially catalyzed by an inquisitive nature concerning the underlying operational paradigms of system, which evolved into a career in resolving intractable challenges through advanced breaching techniques. I am now a dedicated Full Stack Developer with the technical expertise in crafting digital systems that are reliable (Robust), seamless in functionality (Scalable), and visually helpful (Enhanced UI/UX) while utilising the latest technologies.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="about-item flex items-center reveal-right" data-sr-duration="1200" data-sr-delay="300">
+                        <div class="about-icon">
+                            <i class="fas fa-user-graduate text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Education</h4>
+                            <p class="text-gray-400 text-sm">BSc in Computer Science</p>
+                        </div>
+                    </div>
+                    <div class="about-item flex items-center reveal-right" data-sr-duration="800" data-sr-delay="200">
+                        <div class="about-icon">
+                            <i class="fas fa-briefcase text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Experience</h4>
+                            <p class="text-gray-400 text-sm">NULL Years</p>
+                        </div>
+                    </div>
+                    <div class="about-item flex items-center reveal-right" data-sr-duration="800" data-sr-delay="300">
+                        <div class="about-icon">
+                            <i class="fas fa-laptop-code text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Projects</h4>
+                            <p class="text-gray-400 text-sm">8+ Completed</p>
+                        </div>
+                    </div>
+                    <div class="about-item flex items-center reveal-right" data-sr-duration="800" data-sr-delay="400">
+                        <div class="about-icon">
+                            <i class="fas fa-book-journal-whills text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Research Paper</h4>
+                            <p class="text-gray-400 text-sm">3+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Skills</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                Here is the technical arsenal I work with on a daily basis.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="project-glass p-6 rounded-xl glow-effect reveal-left" data-sr-duration="800" data-sr-delay="400">
+                <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">HTML/CSS</span>
+                            <span class="text-sm font-medium">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">JavaScript</span>
+                            <span class="text-sm font-medium">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">React.js</span>
+                            <span class="text-sm font-medium">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Vue.js</span>
+                            <span class="text-sm font-medium">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-glass p-6 rounded-xl glow-effect reveal-right" data-sr-duration="800" data-sr-delay="400">
+                <h3 class="text-xl font-semibold mb-4">Backend Development</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Node.js</span>
+                            <span class="text-sm font-medium">82%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Python</span>
+                            <span class="text-sm font-medium">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">C/C++</span>
+                            <span class="text-sm font-medium">81%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 81%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Express.js</span>
+                            <span class="text-sm font-medium">77%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2.5">
+                            <div class="skill-bar h-2.5 rounded-full bg-gradient-to-r from-[#4682B4] to-violet-700" style="width: 77%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <h3 class="text-xl font-semibold mb-6">Other Tools & Technologies</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="project-glass px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fab fa-git-alt text-violet-700 text-xl mr-2"></i>
+                    <span>Git</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fab fa-docker text-violet-700 text-xl mr-2"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fab fa-google text-violet-700 text-xl mr-2"></i>
+                    <span>Google Cloud</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fas fa-server text-violet-700 text-xl mr-2"></i>
+                    <span>Nginx</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fab fa-linux text-violet-700 text-xl mr-2"></i>
+                    <span>Linux</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fas fa-database text-violet-700 text-xl mr-2"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="glass-accent px-4 py-3 rounded-lg flex items-center glow-effect">
+                    <i class="fas fa-network-wired text-violet-700 text-xl mr-2"></i>
+                    <span>Postman API</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text ">Projects </h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                These are some of the projects under my belt. Each one was built to develop my existing abilities or add a new skill to my library.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <!-- Projects 1 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture1.png" alt="Project 1" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-blog text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Blogging Website</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        In this project, I have combined React, Node.js, and Amazon Web Services (AWS) in a full-stack, full-featured website, including user-friendly forms for posting articles and comments. Learnt how to create an interface from React components, develop a Node.js server, tie in a MongoDB database, add user authentication with Firebase Auth.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">React</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Google Cloud</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Node.js</span>
+                        </div>
+                        <div class="flex">
+                            <a href="https://vue-app-deployment.onrender.com/products" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class=""></i>
+                            </a>
+                            <a href="https://github.com/RaadKamal/Full-Stack-My-Blog" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 2 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture2.jpg" alt="Project 2" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-shopping-cart text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">E-commerce Platform</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        Vue.js to build a simple front-end; Node.js and MongoDB to construct the back end; Axios to communicate between the front and back ends; add authentication with Firebase Authentication; and finally, took it live via dashboard rendering. Configured my site with Postman and Express. This project is integrated with GitHub Codespaces.The design aims to provide a streamlined shopping experience.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Vue.js</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Firebase</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex">
+                            <a href="https://vue-app-deployment.onrender.com/products" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/RaadKamal/Full-Stack-Ecommerce" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 3 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture3.jpg" alt="Project 3" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-television text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Movie Recommendation App</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        The movie guide, developed on Android Studio using Kotlin, enables users to filter and select their preferred films from aggregated datasets just by asking Quizlets to the user, facilitating personalized film recommendations. This project has been implemented following Agile development methodologies and adheres to established principles of software engineering for academic purposes. We successfully followed SOLID principles, MVC design pattern and Test-Driven Development in our iterative approach.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Android Studio</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Kotlin</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">SQLite</span>
+                        </div>
+                        <div class="flex">
+                            <a href="https://vue-app-deployment.onrender.com/products" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class=""></i>
+                            </a>
+                            <a href="https://github.com/RaadKamal/Movie_Recommendation_App-main" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 4 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture4.jpg" alt="Project 4" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Blockchain DataAnalytics</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        In this project, we created a Python network with transaction ID, then we leveraged Scikit-Learn and XGBoost to effectively detect ransomware payments in Blockchain. The way we did it is by performing a time series analysis to detect anomalies and identify payment trends in a 24-hour snapshot, yielding valuable financial insights that led us to Darknet Market.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Machine learning</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Artificial Intelligent</span>
+                        </div>
+                        <div class="flex">
+                            <a href="https://vue-app-deployment.onrender.com/products" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class=""></i>
+                            </a>
+                            <a href="https://github.com/RaadKamal/BlockchainDataAnalytics-1/tree/master" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 5 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture5.jpg" alt="Project 5" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-suitcase-medical text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Radiant Health</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        This Prototype provides a distinctive user interface and user experience (UI/UX) by utilizing visual indicators, one of which is red marks on the screen, to highlight unmet goals. It is a research-based initiative conducted as part of a third-year course Human-Computer Interaction (HCI). The development process includes seven steps: investigation and research, ideation and analysis, storyboarding, low-fidelity paper prototypes, evaluation and iteration, high-fidelity prototypes, and heuristic evaluation and reflection.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">UI</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">UX</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Javascript</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">HTML/CSS</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">jQuery</span>
+                        </div>
+                        <div class="flex">
+                            <a href="https://vue-app-deployment.onrender.com/products" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class=""></i>
+                            </a>
+                            <a href="https://github.com/RaadKamal/Fitness-Tracker/tree/main/Fitness-Tracker/COMP_3020_MS3_GroupP" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 6 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture7.jpg" alt="Project 7" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-1000 to-black-900">
+                            <i class="fa-solid fa-address-card text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Portfolio</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        A strategic collection of my best projects, code samples, and technical contributions designed to demonstrate my skills, experience, and problem-solving capabilities specifically tailored for the tech industry. This is my professional highlight reel thoughtfully utilized defocusing and refocusing techniques at the same time to respectfully capture your attention. It brings more clarity to your navigation.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Deepsite</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Huggingface</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Artificial Intelligence</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">HTML</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Tailwind CSS</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Javascript</span>
+                        </div>
+                           <div class="flex">
+                            <a href="https://raadkamal.github.io/" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/RaadKamal/RaadKamal.github.io" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 7 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture8.jpg" alt="Project 1" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-people-roof text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Bracket Manager</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        [Insert Info]
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">[Insert Tech]</span>
+                        </div>
+                        <div class="flex">
+                            <a href="#" class="project-live-demo text-green-600 hover:text-green-500 font-medium flex items-center mr-4">
+                                <i class="mr-1"></i> NULL
+                            </a>
+                            <a href="https://github.com/RaadKamal/Bracket" class="project-code text-gray-400 hover:text-gray-300 font-medium flex items-center">
+                                <i class="fab fa-github mr-1"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 8 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture9.jpg" alt="Project 1" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fa-regular fa-envelope"></i>  
+                        </div>
+                        <h3 class="text-xl font-semibold">Message Queueing System</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        Using socket programming to send and receive messages among workers, the host(Server) and thin clients. To achieve true concurrency, we implemented select to listen to multiple sockets/files at the same time.  
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">TCP & UDP</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Multicasting</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a class="glowing-text font-medium flex items-center">
+                                <i class="mr-1"></i> Classified
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Projects 9 -->
+            <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="Picture10.jpg" alt="Project 1" class="project-image">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center mb-2">
+                        <div class="glass-accent p-2 rounded-full mr-3 bg-gradient-to-r from-black-900 to-black-1000">
+                            <i class="fas fa-message text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Multi-threaded API Web server</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4 text-justify tracking-wide">
+                        An implementation of  REST API featuring user authentication, caching, cookies and multithreading capabilities, designed to interact with database instances through API. The idea is to explore the layers of the Open Systems Interconnection.
+                    </p>
+                    <div class="project-footer mt-auto flex flex-col">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Python</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">Javascript</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">CSS</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">HTML</span>
+                            <span class="glass-accent text-violet-700 text-xs px-2 py-1 rounded">JSON</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a class="glowing-text font-medium flex items-center">
+                                <i class="mr-1"></i> Classified
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="https://github.com/RaadKamal?tab=repositories" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 glass-accent glow-effect">
+                View All Projects
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!--Education Section -->
+<section id="Education" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text">Education</h2>
+
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+
+            BS, Computer Science
+            </p>
+
+
+            <div class="image-div flex justify-center mt-8">
+                <img src="UoM.svg" class="max-w-xs md:max-w-sm lg:max-w-md h-auto rounded-lg shadow-md">
+            </div>
+
+        </div>
+
+    </div>
+ </section>
+
+
+<!-- Certificates Section -->
+
+
+
+
+
+    <section id="Cert" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Certificates</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                A great LEADER can make a lot of tanks but a greater LEADER can make a lot of better tanks. That's why I obtained these certificates to be industry-ready.
+            </p>
+        </div>
+
+        <div class="certificates-container">
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="docker-svgrepo-com.svg" alt="1" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Docker</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="2" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Docker: Docker Your First Project</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="3" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning Docker Compose</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="4" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning Docker</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2024</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="api-management-svgrepo-com.svg" alt="5" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Programming Foundations: APIs and Web Services</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2024</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="react-svgrepo-com.svg" alt="6" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">React.js Creating and Hosting a Full-Stack Site</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="certificate-authority-service-svgrepo-com.svg" alt="7" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">SSL Certificates for Web Developers</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+              <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="vue-svgrepo-com.svg" alt="8" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Vue.js Creating and Hosting a Full-Stack Site</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+              <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="wifi-svgrepo-com.svg" alt="9" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">The Complete Python Network Programming Course for 2022</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2022</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="database-svgrepo-com.svg" alt="10" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning to Build Apps Using Neo4j</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2021</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Soft Section -->
+
+
+
+<section id="Soft" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text">Soft Skills</h2>
+
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+
+                What's the point of having Soft Skills intact if you don't let your LEADER use them to delegate an operation smoothly, Commander in Chief?
+
+        </div>
+
+
+        <style>
+
+            .soft-skill-item {
+
+                position: relative;
+
+                overflow: hidden;
+
+            }
+
+            .soft-skill-item::before {
+
+                content: '';
+
+                position: absolute;
+
+                top: 0;
+
+                left: -100%;
+
+                width: 60%;
+
+                height: 100%;
+
+                background: linear-gradient(
+
+                        90deg,
+
+                        transparent,
+
+                        rgba(34, 139, 34, 0.4),
+
+                        transparent
+
+                );
+
+                animation: autoGlow 3s linear infinite;
+
+            }
+
+            @keyframes autoGlow {
+
+                0% {
+
+                    left: -100%;
+
+                }
+
+                100% {
+
+                    left: 100%;
+
+                }
+
+            }
+
+        </style>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-users text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Broadened Team Communication</h3>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-magnifying-glass-chart text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Realiable Decisiveness</h3>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-microchip text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Advanced Critical Thinking</h3>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-clock text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Prioritized Time Management</h3>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-random text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Stable and Fast Networking</h3>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-comment text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold"> Exceptional Customer Service</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-unlock text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Perma Conflict Resolution</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-chess text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Solo Leadership</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Time Section -->
+<section id="Free time" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text"> Free Time?!</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                I am a Storyteller at heart, with an aim of producing One game in my lifetime that lasts.
+            </p>
+
+        </div>
+
+
+
+
+        <div class="project-glass p-6 rounded-xl glow-effect">
+            <p class="text-gray-300">I'm working on a Game with this [Unannounced Company] named [Untitled]. The story is being futured up currently. Wanna see how it is going? <a href="https://docs.google.com/document/d/1Mz_uVX6Wf_sdqwG3H6wBhCuFWu0gP39tRxznZ1s1K0Q/edit?usp=sharing" class="text-violet-700 hover:text-violet-600"> CLICK HERE </a>!. </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- Resume Section -->
+<section id="resume" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Resume</h2>
+            <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+
+            </p>
+            <h1></h1>
+
+            <div id="pdfWrapper" class="pdf-container collapsed super-flowing-glow">
+               <iframe class="pdf-viewer" src="My_Resume.pdf#toolbar=0&navpanes=0"></iframe> 
+            </div>
+            <button id="pdfToggleButton" class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 glass-accent glow-effect"> Expand PDF </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- Inspirational Section -->
+<section id="Education" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text">Inspiration </h2>
+
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+            Here is the Cherry on top. One person I often look up to during my downtime is because of his salient sensibilities around the environment. Meet the Mr Leader of the free Galaxy.
+            </p>
+
+
+            <div class="image-div flex justify-center mt-8">
+                <img src="Pic.jpg" class="max-w-xs md:max-w-sm lg:max-w-md h-auto rounded-lg shadow-md">
+            </div>
+
+        </div>
+
+    </div>
+ </section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Recruit Me</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                Are you on the lookout for a SUPER LEADER who can turn the tide of your Battle?  Please do not hesitate to contact me for further discussion.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <form class="space-y-6">
+                    <div>
+                        <button type="button" id="sendMessageButton" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 glass-accent glow-effect">
+                            Send Message
+                        </button>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-medium mb-4">Let me follow you</h4>
+                        <div class="flex space-x-4 icon-container-js">
+                            <a href="https://www.x.com/KamalRaad52013" class="social-icon glass-accent p-3 rounded-full text-black-400 hover:bg-gray-800 transition duration-300 icon-item-js">
+                                <i class="fab fa-x fa-lg"></i>
+                            </a>
+                            <a href="https://www.github.com/RaadKamal" class="social-icon glass-accent p-3 rounded-full text-gray-300 hover:bg-gray-800 transition duration-300 icon-item-js">
+                                <i class="fab fa-github fa-lg"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/raadkamal99" class="social-icon glass-accent p-3 rounded-full text-blue-400 hover:bg-gray-800 transition duration-300 icon-item-js">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                            <a href="https://www.facebook.com/mostafaraad.kamal.1/" class="social-icon glass-accent p-3 rounded-full text-blue-500 hover:bg-gray-800 transition duration-300 icon-item-js">
+                                <i class="fab fa-facebook-f fa-lg"></i>
+                            </a>
+                            <a href="https://www.instagram.com/kammd1702/" class="social-icon glass-accent p-3 rounded-full text-red-500 hover:bg-gray-800 transition duration-300 icon-item-js">
+                                <i class="fab fa-instagram fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="md:w-1/2">
+                <div class="space-y-4">
+                    <div class="contact-info-item flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Location</h4>
+                            <p class="text-gray-400">Winnipeg, MB, Canada</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Email</h4>
+                            <p class="text-gray-400">riyadhkamalx@gmail</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item flex items-start">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Phone</h4>
+                            <p class="text-gray-400">+1 (431) 996-1804</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 w-full" style="left: 0; right: 0;">
+    <div class="px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-start">
+            <div class="mb-4 md:mb-0 pl-4" style="text-align: left;">
+                <a class="text-xl font-bold gradient-text"> From the <span class="text-blue-500">CORE</span></a>
+                <p class="text-gray-500 mt-2"> Full Stack Developer</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center ">
+            <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                &copy; 2026 Mostafa Raad Kamal. All rights reserved.
+            </p>
+            <div class="flex space-x-4">
+
+                <a href="#" class=" text-gray-500 hover:text-white transition duration-300">
+                    <i class="fa-solid fa-up-long"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with AI</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
