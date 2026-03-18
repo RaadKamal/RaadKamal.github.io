@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (screen.width < 1280) {
+            document.getElementById("viewport").setAttribute("content", "width=1280");
+        }
+    </script>
     <meta property="og:image" content="/prolink.jpeg">
     <title>Mostafa Raad Kamal - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,6 +20,7 @@
     <link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body class="min-h-screen">
 <div class="background-video">
@@ -22,31 +28,62 @@
         <source src="Video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
 </div>
 
+<!-- Navigation -->
+
 <nav class="fixed w-full z-50 nav-glass full-width-nav reveal-top" data-sr-duration="800" style="left: 0; right: 0;">
+
     <div class="px-4 sm:px-6 lg:px-8">
+
         <div class="flex justify-between h-24 items-center" style="border: none;">
+
             <div class="flex items-center">
+
                 <img src="tablink.ico" alt="Welcome Image" width="45" height="45" style="vertical-align: middle; margin-right: 3px;">
+
                 <a class="text-xl font-bold gradient-text">Welcome to the Portfolio ! </a>
+
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Home</a>
-                <a href="#about" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">About</a>
-                <a href="#skills" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Skills</a>
-                <a href="#projects" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Projects</a>
-                <a href="My_Resume.pdf" download="My_Resume.pdf" class="glass-button border-2 border-violet-500 text-white-300 px-3 py-2 rounded-lg font-medium hover:bg-white-800 transition duration-300 glow-effect">Resume <i class="fa fa-download"></i></a>
-                <a href="#contact" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Contact</a>
-            </div>
+
+                    <div class="hidden md:flex items-center space-x-8">
+                    
+                        <a href="#home" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Home</a>
+                    
+                        <a href="#about" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">About</a>
+                    
+                        <a href="#skills" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Skills</a>
+                    
+                        <a href="#projects" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Projects</a>
+                    
+                        <a href="My_Resume.pdf" download="My_Resume.pdf" class="glass-button border-2 border-violet-500 text-white-300 px-3 py-2 rounded-lg font-medium hover:bg-white-800 transition duration-300 glow-effect">Resume <i class="fa fa-download"></i></a>
+                    
+                        <a href="#contact" class="nav-link hover:text-yellow-300 px-3 py-2 text-base font-medium">Contact</a>
+                    
+                    </div>
+
+
             <div class="md:hidden flex items-center ml-4">
+
+
+
+
+                
                 <button id="menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
                     <i class="fas fa-bars menu-icon text-xl"></i>
                     <i class="fas fa-times close-icon text-xl"></i>
                 </button>
+
             </div>
+
         </div>
+
     </div>
+
+    <!-- Mobile menu -->
+
+
 
     <div id="mobile-menu" class="hidden md:hidden" style="border: none;">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
@@ -60,6 +97,7 @@
     </div>
 </nav>
 
+<!-- Hero Section -->
 <section id="home" class="pt-32 md:pt-40 pb-16 md:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="flex flex-col md:flex-row items-center md:gap-x-16">
@@ -70,10 +108,16 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-20 text-violet-700 typewriter">
                     Full Stack Dev
                 </h2>
+
+
+
                 <div class="flex flex-wrap gap-4 reveal-left" data-sr-duration="800" data-sr-delay="600">
                     <a href="#projects" class="glass-button bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition duration-300 glow-effect">
                         View My Work
                     </a>                      
+
+                
+                                              
                     <a href="#contact" class="glass-button border-2 border-violet-500 text-white-300 px-8 py-3 rounded-lg font-medium hover:bg-white-800 transition duration-300 glow-effect">
                         Contact Me
                     </a>
@@ -87,7 +131,7 @@
         </div>
     </div>
 </section>
-
+<!-- About Section -->
 <section id="about" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1200">
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-12">
@@ -96,6 +140,7 @@
                 Here is a root-cause analysis and a  brief overview of my background.
             </p>
         </div>
+
         <div class="flex flex-col md:flex-row items-center">
             <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center float">
                 <div class="profile-circle">
@@ -103,6 +148,7 @@
                 </div>
             </div>
             <div class="md:w-2/3 md:pl-12 ">
+
                 <div class="project-glass p-6 rounded-xl mb-8 glow-effect">
                     <p class="text-gray-300 text-justify tracking-wide mb-4">
                         Raised by my elder mechanic brother, I was around both physical and digital systems at an early age. Since I had an affinity for complex systems, therefore it was an exciting intellectual validation for me excelling in Pure Science.
@@ -111,6 +157,7 @@
                         My trajectory in software development was initially catalyzed by an inquisitive nature concerning the underlying operational paradigms of system, which evolved into a career in resolving intractable challenges through advanced breaching techniques. I am now a dedicated Full Stack Developer with the technical expertise in crafting digital systems that are reliable (Robust), seamless in functionality (Scalable), and visually helpful (Enhanced UI/UX) while utilising the latest technologies.
                     </p>
                 </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="about-item flex items-center reveal-right" data-sr-duration="1200" data-sr-delay="300">
                         <div class="about-icon">
@@ -154,7 +201,9 @@
     </div>
 </section>
 
+<!-- Skills Section -->
 <section id="skills" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold section-title gradient-text">Skills</h2>
@@ -162,6 +211,7 @@
                 Here is the technical arsenal I work with on a daily basis.
             </p>
         </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div class="project-glass p-6 rounded-xl glow-effect reveal-left" data-sr-duration="800" data-sr-delay="400">
                 <h3 class="text-xl font-semibold mb-4">Frontend Development</h3>
@@ -284,6 +334,7 @@
     </div>
 </section>
 
+<!-- Projects Section -->
 <section id="projects" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-12">
@@ -294,6 +345,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <!-- Projects 1 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture1.png" alt="Project 1" class="project-image">
@@ -326,6 +378,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 2 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture2.jpg" alt="Project 2" class="project-image">
@@ -357,6 +410,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 3 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture3.jpg" alt="Project 3" class="project-image">
@@ -388,6 +442,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 4 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture4.jpg" alt="Project 4" class="project-image">
@@ -419,6 +474,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 5 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture5.jpg" alt="Project 5" class="project-image">
@@ -452,6 +508,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 6 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture7.jpg" alt="Project 7" class="project-image">
@@ -486,6 +543,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 7 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture8.jpg" alt="Project 1" class="project-image">
@@ -516,6 +574,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 8 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture9.jpg" alt="Project 1" class="project-image">
@@ -544,6 +603,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Projects 9 -->
             <div class="project-glass rounded-xl overflow-hidden transition duration-300 glow-effect hover:transform hover:-translate-y-1 flex flex-col">
                 <div class="h-48 overflow-hidden">
                     <img src="Picture10.jpg" alt="Project 1" class="project-image">
@@ -575,6 +635,7 @@
                 </div>
             </div>
         </div>
+
         <div class="text-center mt-12">
             <a href="https://github.com/RaadKamal?tab=repositories" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-amber-700 to-amber-500 hover:from-amber-600 hover:to-amber-500 glass-accent glow-effect">
                 View All Projects
@@ -584,20 +645,420 @@
     </div>
 </section>
 
+<!--Education Section -->
 <section id="Education" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
     <div class="glass-card p-8 md:p-12 rounded-2xl">
+
         <div class="text-center mb-12">
+
             <h2 class="text-3xl font-bold section-title gradient-text">Education</h2>
+
             <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+
             BS, Computer Science (2025 Grad)
             </p>
+
+
             <div class="image-div flex justify-center mt-8">
                 <img src="UoM.svg" class="max-w-xs md:max-w-sm lg:max-w-md h-auto rounded-lg shadow-md">
+            </div>
+
+        </div>
+
+    </div>
+ </section>
+
+
+<!-- Certificates Section -->
+
+
+
+
+<!--
+    <section id="Cert" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold section-title gradient-text">Certificates</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                A great LEADER can make a lot of tanks but a greater LEADER can make a lot of better tanks. That's why I obtained these certificates to be industry-ready.
+            </p>
+        </div>
+
+        <div class="certificates-container">
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="docker-svgrepo-com.svg" alt="1" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Docker</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="2" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Docker: Docker Your First Project</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="3" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning Docker Compose</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2025</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="linkedin-svgrepo-com.svg" alt="4" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning Docker</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2024</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="api-management-svgrepo-com.svg" alt="5" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Programming Foundations: APIs and Web Services</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2024</span>
+            </div>
+
+                <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="react-svgrepo-com.svg" alt="6" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">React.js Creating and Hosting a Full-Stack Site</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="certificate-authority-service-svgrepo-com.svg" alt="7" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">SSL Certificates for Web Developers</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+              <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="vue-svgrepo-com.svg" alt="8" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Vue.js Creating and Hosting a Full-Stack Site</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2023</span>
+            </div>
+
+              <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="wifi-svgrepo-com.svg" alt="9" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">The Complete Python Network Programming Course for 2022</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2022</span>
+            </div>
+
+               <div class="certificate project-glass glow-effect mb-3 p-4 md:p-8 rounded-2xl" style="display: flex; align-items: center; justify-content: space-between;">
+                <div class="left-side" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="database-svgrepo-com.svg" alt="10" width="46" height="46">
+                    <div class="certificate-info">
+                        <h3 class="text-violet-700 text-lg font-semibold">Learning to Build Apps Using Neo4j</h3>
+                    </div>
+                </div>
+                <span style="font-weight: bold; font-size: 1.5em;">2021</span>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Soft Section -->
+
+<!--
+
+<section id="Soft" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text">Soft Skills</h2>
+
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+
+                What's the point of having Soft Skills intact if you don't let your LEADER use them to delegate an operation smoothly, Commander in Chief?
+
+        </div>
+
+
+        <style>
+
+            .soft-skill-item {
+
+                position: relative;
+
+                overflow: hidden;
+
+            }
+
+            .soft-skill-item::before {
+
+                content: '';
+
+                position: absolute;
+
+                top: 0;
+
+                left: -100%;
+
+                width: 60%;
+
+                height: 100%;
+
+                background: linear-gradient(
+
+                        90deg,
+
+                        transparent,
+
+                        rgba(34, 139, 34, 0.4),
+
+                        transparent
+
+                );
+
+                animation: autoGlow 3s linear infinite;
+
+            }
+
+            @keyframes autoGlow {
+
+                0% {
+
+                    left: -100%;
+
+                }
+
+                100% {
+
+                    left: 100%;
+
+                }
+
+            }
+
+        </style>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-users text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Broadened Team Communication</h3>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-magnifying-glass-chart text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Realiable Decisiveness</h3>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-microchip text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Advanced Critical Thinking</h3>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-clock text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Prioritized Time Management</h3>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-random text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Stable and Fast Networking</h3>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-comment text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold"> Exceptional Customer Service</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-unlock text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Perma Conflict Resolution</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="project-glass p-3 rounded-md soft-skill-item glow-effect hover:transform hover:-translate-y-1 transition-transform">
+
+                <div class="flex items-center">
+
+                    <div class="glass-accent p-3 rounded-full mr-4">
+
+                        <i class="fas fa-chess text-white-500 text-xl"></i>
+
+                    </div>
+
+                    <h3 class="text-violet-700 font-semibold">Solo Leadership</h3>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Time Section -->
+ <!--   
+<section id="Free time" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
+    <div class="glass-card p-8 md:p-12 rounded-2xl">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl font-bold section-title gradient-text"> Free Time?!</h2>
+            <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
+                I am a Storyteller at heart, with an aim of producing One game in my lifetime that lasts.
+            </p>
+
+        </div>
+
+
+
+
+        <div class="project-glass p-6 rounded-xl glow-effect">
+            <p class="text-gray-300">I'm working on a Game with this [Unannounced Company] named [Untitled]. The story is being futured up currently. Wanna see how it is going? <a href="https://docs.google.com/document/d/1Mz_uVX6Wf_sdqwG3H6wBhCuFWu0gP39tRxznZ1s1K0Q/edit?usp=sharing" class="text-violet-700 hover:text-violet-600"> CLICK HERE </a>!. </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- Resume Section -->
 <section id="resume" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-12">
@@ -616,20 +1077,32 @@
     </div>
 </section>
 
-<section id="Inspiration" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+<!-- Inspirational Section -->
+<section id="Education" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
+
     <div class="glass-card p-8 md:p-12 rounded-2xl">
+
         <div class="text-center mb-12">
+
             <h2 class="text-3xl font-bold section-title gradient-text">Inspiration </h2>
+
             <p class="text-gray-300 font-bold mt-6 max-w-2xl mx-auto">
             Here is the Cherry on top. One person I often look up to during my downtime is because of his salient sensibilities around the environment. Meet the Mr Leader of the free Galaxy.
             </p>
+
+
             <div class="image-div flex justify-center mt-8">
                 <img src="Pic.jpg" class="max-w-xs md:max-w-sm lg:max-w-md h-auto rounded-lg shadow-md">
             </div>
+
         </div>
+
     </div>
  </section>
 
+
+
+<!-- Contact Section -->
 <section id="contact" class="py-16 px-4 pb-16 sm:px-6 lg:px-8 max-w-6xl mx-auto reveal-bottom" data-sr-duration="1500">
     <div class="glass-card p-8 md:p-12 rounded-2xl">
         <div class="text-center mb-12">
@@ -705,6 +1178,7 @@
     </div>
 </section>
 
+<!-- Footer -->
 <footer class="py-8 w-full" style="left: 0; right: 0;">
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-start">
@@ -718,9 +1192,11 @@
                 &copy; 2026 Mostafa Raad Kamal. All rights reserved.
             </p>
             <div class="flex space-x-4">
+
                 <a href="#" class=" text-gray-500 hover:text-white transition duration-300">
                     <i class="fa-solid fa-up-long"></i>
                 </a>
+
             </div>
         </div>
     </div>
@@ -731,3 +1207,7 @@
 <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with AI</p>
 </body>
 </html>
+
+
+
+
