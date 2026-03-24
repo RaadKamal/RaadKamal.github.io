@@ -6,4 +6,14 @@ Upcoming improvements:
 2. Loading Screen.
 3. Transformation Toggle.
 
+## >_ Tech Stack
+
+* **Database:** Github
+* **Website:** Static
+* **Front-End/Interface:** HTML, Tailwind CSS, Javascript
+* **Env:** Huggingface
+* **CONFIG:** AI
+* **Deployment:** Github domain
+
+
 
