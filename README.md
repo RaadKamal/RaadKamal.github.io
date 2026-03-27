@@ -2,9 +2,7 @@ Deepsite (https://deepsiteai.com/) to create the portfolio, and mainly some Java
 
 Upcoming improvements:
 
-1. Expand on Hover; Project Section.
-2. Loading Screen.
-3. Transformation Toggle.
+1. Expand on Hover; Project Section, Loading Screen, Transformation Toggle.
 
 ## >_ Tech Stack
 
