@@ -15,15 +15,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px; /* Slightly more space between text and bar */
+  gap: 25px; 
   z-index: 9999; 
   transition: opacity 0.6s ease-out; 
 }
 
 #loading-text {
-  font-size: 32px; /* Increased from 24px */
+  font-size: 32px; 
   font-weight: 900; 
-  letter-spacing: 15px; /* Wider tracking for a more "cinematic" look */
+  letter-spacing: 15px; 
   text-transform: uppercase;
   margin-right: -15px; 
   background: linear-gradient(90deg, #32CD32, #008000);
@@ -34,11 +34,11 @@
 }
 
 #loading-bar-container {
-  width: 500px; /* Increased from 150px (Wider) */
-  height: 8px; /* Increased from 8px (Thicker) */
+  width: 700px; /* INCREASED: Makes the bar wider */
+  height: 4px;  /* DECREASED: Makes the bar thinner */
   background-color: rgba(255, 255, 255, 0.05); 
   border: 1px solid rgba(255, 255, 255, 0.1); 
-  border-radius: 10px; /* Adjusted rounding for the thicker bar */
+  border-radius: 10px; 
   overflow: hidden; 
   position: relative;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -46,20 +46,19 @@
 
 #progress-bar {
   position: absolute;
-  width: 100px; /* Increased segment width to match the wider bar */
+  width: 150px; /* INCREASED slightly so the moving segment doesn't look too short in the wider bar */
   height: 100%; 
-  /* Updated gradient: Dark red -> Bright orange -> Dark red */
   background: linear-gradient(90deg, #991b1b 0%, #f97316 50%, #991b1b 100%); 
   border-radius: 10px; 
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
   animation: flow-progress 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  left: -100px; 
+  left: -150px; 
 }
 
 @keyframes flow-progress {
   0% { left: -150px; opacity: 0; }
   50% { opacity: 1; }
-  100% { left: 500px; opacity: 0; }
+  100% { left: 700px; opacity: 0; } /* UPDATED: Matches the new 700px container width */
 }
 
         body {
