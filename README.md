@@ -5,7 +5,7 @@ Upcoming improvements:
 1. Expand on Hover; Project Section, Loading Screen✔️, Transformation Toggle.
 
 Bugs:
-1. Text inconsiatency.
+1. Text Font inconsiatency.
 
 ## >_ Tech Stack
 
