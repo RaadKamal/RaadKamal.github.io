@@ -2,7 +2,7 @@ Deepsite (https://deepsiteai.com/) to create the portfolio, and mainly some Java
 
 Upcoming improvements:
 
-1. Expand on Hover; Project Section, Loading Screen✔️, Transformation Toggle.
+1. Expand on Hover; Project Section, Loading Screen :white_check_mark:, Transformation Toggle.
 
 Bugs:
 1. Text Font inconsiatency.
