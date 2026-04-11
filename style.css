@@ -3,7 +3,7 @@
 
 
 
-/* --- UPDATED THICK & WIDE LOADER --- */
+/* --- UPDATED THINNER & BOXY LOADER --- */
 #loader-wrapper {
   position: fixed; 
   top: 0;
@@ -34,11 +34,11 @@
 }
 
 #loading-bar-container {
-  width: 700px; /* INCREASED: Makes the bar wider */
-  height: 4px;  /* DECREASED: Makes the bar thinner */
+  width: 400px; /* DECREASED: Makes the bar less wide */
+  height: 4px;  
   background-color: rgba(255, 255, 255, 0.05); 
   border: 1px solid rgba(255, 255, 255, 0.1); 
-  border-radius: 10px; 
+  border-radius: 0px; /* UPDATED: Changed from 10px to 0px for box edges */
   overflow: hidden; 
   position: relative;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -46,19 +46,19 @@
 
 #progress-bar {
   position: absolute;
-  width: 150px; /* INCREASED slightly so the moving segment doesn't look too short in the wider bar */
+  width: 100px; /* DECREASED: Adjusted to fit the new narrower container */
   height: 100%; 
   background: linear-gradient(90deg, #991b1b 0%, #f97316 50%, #991b1b 100%); 
-  border-radius: 10px; 
+  border-radius: 0px; /* UPDATED: Changed from 10px to 0px for box edges */
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
   animation: flow-progress 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  left: -150px; 
+  left: -100px; /* UPDATED: Matches the new segment width */
 }
 
 @keyframes flow-progress {
-  0% { left: -150px; opacity: 0; }
+  0% { left: -100px; opacity: 0; }
   50% { opacity: 1; }
-  100% { left: 700px; opacity: 0; } /* UPDATED: Matches the new 700px container width */
+  100% { left: 400px; opacity: 0; } /* UPDATED: Matches the new 400px container width */
 }
 
         body {
