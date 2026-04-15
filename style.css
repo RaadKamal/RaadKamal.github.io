@@ -34,11 +34,12 @@
 }
 
 #loading-bar-container {
-  width: 400px; /* DECREASED: Makes the bar less wide */
-  height: 4px;  
+  width: 400px; 
+  /* INCREASED: Bumped up to 12px so there is 6px of inner space after the borders */
+  height: 12px;  
   background-color: rgba(255, 255, 255, 0.05); 
-  border: 3px solid #000000; /* UPDATED: Changed to a thicker, solid black border */
-  border-radius: 0px; /* UPDATED: Changed from 10px to 0px for box edges */
+  border: 3px solid #000000; 
+  border-radius: 0px; 
   overflow: hidden; 
   position: relative;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
