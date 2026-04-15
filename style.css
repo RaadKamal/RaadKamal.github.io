@@ -62,6 +62,21 @@
   100% { left: 400px; opacity: 0; } /* UPDATED: Matches the new 400px container width */
 }
 
+
+/* --- Interactive Project Card Reveal --- */
+.project-hidden-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, margin-top 0.4s ease-in-out;
+}
+
+.project-glass:hover .project-hidden-content {
+    max-height: 800px; /* Provides enough space for the content to expand into */
+    opacity: 1;
+    margin-top: 1rem; /* Adds a clean gap between the title and description */
+}
+
         body {
             margin: 0;           /* remove browser default margin */
             padding: 0;     
