@@ -5,7 +5,7 @@ Upcoming improvements:
 1. Expand on Hover; Project Section :white_check_mark:, Loading Screen :white_check_mark:, Transformation Toggle.
 
 Bugs:
-1. Text Font inconsistency.
+1. Text Font inconsistency :white_check_mark:.
 
 ## >_ Tech Stack
 
