@@ -6,6 +6,7 @@ Upcoming improvements:
 
 Bugs:
 1. Text Font inconsistency :white_check_mark:.
+2. The last few sections disappear when users are on the section.
 
 ## >_ Tech Stack
 
