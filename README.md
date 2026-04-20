@@ -4,7 +4,7 @@ Upcoming improvements:
 
 1. Expand on Hover; Project Section :white_check_mark:,
 2. Loading Screen :white_check_mark:,
-3. Transformation Toggle. 
+3. Transformation Toggle. Sneak Peek?
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/RaadKamal/RaadKamal.github.io/main/Pre-Version.png" width="600" alt="None">
