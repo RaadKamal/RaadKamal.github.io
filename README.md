@@ -7,7 +7,7 @@ Upcoming improvements:
 3. Transformation Toggle. Have a look at what's cooking:
 
 <p align="center">
-  <h2>Buy & Sell Pic:</h2>
+  <h2>Pre of Pre of Pre</h2>
   <img src="https://raw.githubusercontent.com/RaadKamal/SlidingWindow/main/Buy%26Sell.jpg" width="600" alt="Buy and Sell Concept">
 </p>
    
