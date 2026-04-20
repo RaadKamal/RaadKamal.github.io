@@ -5,6 +5,11 @@ Upcoming improvements:
 1. Expand on Hover; Project Section :white_check_mark:,
 2. Loading Screen :white_check_mark:,
 3. Transformation Toggle. Have a look at what's cooking:
+
+<p align="center">
+  <h2>Buy & Sell Pic:</h2>
+  <img src="https://raw.githubusercontent.com/RaadKamal/SlidingWindow/main/Buy%26Sell.jpg" width="600" alt="Buy and Sell Concept">
+</p>
    
 
 Bugs:
