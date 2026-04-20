@@ -2,11 +2,14 @@ Deepsite (https://deepsiteai.com/) to create the portfolio, and afterwards, main
 
 Upcoming improvements:
 
-1. Expand on Hover; Project Section :white_check_mark:, Loading Screen :white_check_mark:, Transformation Toggle.
+1. Expand on Hover; Project Section :white_check_mark:,
+2. Loading Screen :white_check_mark:,
+3. Transformation Toggle. 
+   
 
 Bugs:
 1. Text Font inconsistency :white_check_mark:.
-2. The last few sections disappear when viewers are on the section.
+2. The last few sections disappear when viewers/recruiters are on the section.
 
 ## >_ Tech Stack
 
