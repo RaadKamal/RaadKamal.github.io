@@ -7,7 +7,7 @@ Upcoming improvements:
 3. Transformation Toggle. Have a look at what's cooking:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/RaadKamal/SlidingWindow/main/Buy%26Sell.jpg" width="600" alt="Buy and Sell Concept">
+  <img src="https://raw.githubusercontent.com/RaadKamal/RaadKamal.github.io/main/Pre-Version.png" width="600" alt="None">
 </p>
    
 
