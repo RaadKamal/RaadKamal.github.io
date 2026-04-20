@@ -4,7 +4,7 @@ Upcoming improvements:
 
 1. Expand on Hover; Project Section :white_check_mark:,
 2. Loading Screen :white_check_mark:,
-3. Transformation Toggle. 
+3. Transformation Toggle. Have a look at what's cooking:
    
 
 Bugs:
