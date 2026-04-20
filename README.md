@@ -7,7 +7,7 @@ Upcoming improvements:
 3. Transformation Toggle. Sneak Peek?
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/RaadKamal/RaadKamal.github.io/main/Pre-Version.png" width="600" alt="None">
+  <img src="https://raw.githubusercontent.com/RaadKamal/RaadKamal.github.io/main/Pre-Version.png" width="500" alt="None">
 </p>
 
 <p align="center">
