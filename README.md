@@ -32,8 +32,8 @@ Bugs:
 * **Database:** Github
 * **Website:** Static
 * **Front-End/Interface:** HTML, Tailwind CSS, Javascript
-* **Env:** Huggingface
-* **CONFIG:** AI
+* **Env:** Huggingface, Deepsite
+* **CONFIG:** AI, Gemini 3.1 Pro
 * **Deployment:** Github domain
 
 
