@@ -2,56 +2,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
-
-#loader-wrapper {
+  /* --- MAIN WRAPPER (Preserved for JS fade-out) --- */
+  /* Set to pure black and centers the remaining stars */
+  #loader-wrapper {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #050508; /* Darkened slightly to make lights pop */
+    background-color: #000000; /* Pure black background */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px; 
     z-index: 9999; 
     transition: opacity 0.6s ease-out; 
-    font-family: Arial, sans-serif;
   }
 
-  /* --- TEXT ALIGNMENT --- */
-  #loading-text {
-    font-size: 24px; 
-    font-weight: 900; 
-    letter-spacing: 15px; 
-    text-transform: uppercase;
-    margin-right: -15px; 
-    color: #445;
-    animation: textPulse 2s infinite;
-  }
-
-  /* --- TACTICAL HOUSING (Replaces the thin progress box) --- */
+  /* --- CONTAINER (Stripped of all borders/styling) --- */
+  /* Keeps IDs and aligns the stars horizontally */
   #loading-bar-container {
     display: flex;
-    gap: 25px;
-    padding: 30px 50px;
-    background: linear-gradient(180deg, #1a1a24 0%, #0d0d14 100%);
-    border-radius: 15px;
-    border-top: 2px solid #2a2a35;
-    border-bottom: 6px solid #000;
-    box-shadow: 
-      0 20px 50px rgba(0,0,0,0.9),
-      inset 0 0 20px rgba(0,0,0,0.8);
+    gap: 25px; /* Spacing between stars */
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
     position: relative;
   }
 
-  /* --- INVISIBLE PROGRESS BAR FOR JS SAFETY --- */
-  #progress-bar {
-    display: none; /* Keeps the ID in the DOM so JS doesn't break, but hides it visually */
+  /* --- HIDDEN ELEMENTS FOR JS SAFETY --- */
+  #progress-bar,
+  #loading-text {
+    display: none; /* Hidden visually, preserved in DOM for JS */
   }
 
-  /* --- POLICE STAR ELEMENTS --- */
+  /* --- STAR ELEMENTS & ANIMATIONS (Unchanged) --- */
   .star-wrapper {
     filter: drop-shadow(0 0 2px rgba(255,255,255,0.05));
     animation: policeGlow 2s infinite linear;
@@ -60,13 +45,12 @@
   .star {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #333 0%, #111 100%);
+    background: #111; /* Dark base color for the star */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     position: relative;
     overflow: hidden;
   }
 
-  /* The aggressive, angled police light beam */
   .star::before {
     content: '';
     position: absolute;
@@ -78,9 +62,9 @@
       90deg,
       transparent 0%,
       transparent 35%,
-      rgba(255, 0, 0, 1) 45%,      /* Piercing Red */
-      rgba(255, 255, 255, 1) 50%,  /* Blinding White */
-      rgba(0, 100, 255, 1) 55%,    /* Piercing Blue */
+      rgba(255, 0, 0, 1) 45%,      /* Red */
+      rgba(255, 255, 255, 1) 50%,  /* White */
+      rgba(0, 100, 255, 1) 55%,    /* Blue */
       transparent 65%,
       transparent 100%
     );
@@ -89,17 +73,11 @@
   }
 
   /* --- STAGGERED TIMING --- */
-  .star-wrapper:nth-child(1) .star::before { animation-delay: 0.0s; }
-  .star-wrapper:nth-child(2) .star::before { animation-delay: 0.15s; }
-  .star-wrapper:nth-child(3) .star::before { animation-delay: 0.3s; }
-  .star-wrapper:nth-child(4) .star::before { animation-delay: 0.45s; }
-  .star-wrapper:nth-child(5) .star::before { animation-delay: 0.6s; }
-
-  .star-wrapper:nth-child(1) { animation-delay: 0.0s; }
-  .star-wrapper:nth-child(2) { animation-delay: 0.15s; }
-  .star-wrapper:nth-child(3) { animation-delay: 0.3s; }
-  .star-wrapper:nth-child(4) { animation-delay: 0.45s; }
-  .star-wrapper:nth-child(5) { animation-delay: 0.6s; }
+  .star-wrapper:nth-child(1) .star::before, .star-wrapper:nth-child(1) { animation-delay: 0.0s; }
+  .star-wrapper:nth-child(2) .star::before, .star-wrapper:nth-child(2) { animation-delay: 0.15s; }
+  .star-wrapper:nth-child(3) .star::before, .star-wrapper:nth-child(3) { animation-delay: 0.3s; }
+  .star-wrapper:nth-child(4) .star::before, .star-wrapper:nth-child(4) { animation-delay: 0.45s; }
+  .star-wrapper:nth-child(5) .star::before, .star-wrapper:nth-child(5) { animation-delay: 0.6s; }
 
   /* --- ANIMATION KEYFRAMES --- */
   @keyframes policeSweep {
@@ -113,11 +91,6 @@
     15% { filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.9)); }
     20% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 1)); }
     25% { filter: drop-shadow(0 0 20px rgba(0, 100, 255, 0.9)); }
-  }
-
-  @keyframes textPulse {
-    0%, 100% { opacity: 0.3; text-shadow: none; }
-    50% { opacity: 1; text-shadow: 0 0 15px rgba(0, 100, 255, 0.6); }
   }
 
 
