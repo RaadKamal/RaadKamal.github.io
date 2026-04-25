@@ -3,63 +3,122 @@
 
 
 
-/* --- UPDATED THINNER & BOXY LOADER --- */
 #loader-wrapper {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0a0a0a; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 25px; 
-  z-index: 9999; 
-  transition: opacity 0.6s ease-out; 
-}
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050508; /* Darkened slightly to make lights pop */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; 
+    z-index: 9999; 
+    transition: opacity 0.6s ease-out; 
+    font-family: Arial, sans-serif;
+  }
 
-#loading-text {
-  font-size: 32px; 
-  font-weight: 900; 
-  letter-spacing: 15px; 
-  text-transform: uppercase;
-  margin-right: -15px; 
-  background: linear-gradient(90deg, #32CD32, #008000);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: subtle-fade 3s infinite ease-in-out;
-}
+  /* --- TEXT ALIGNMENT --- */
+  #loading-text {
+    font-size: 24px; 
+    font-weight: 900; 
+    letter-spacing: 15px; 
+    text-transform: uppercase;
+    margin-right: -15px; 
+    color: #445;
+    animation: textPulse 2s infinite;
+  }
 
-#loading-bar-container {
-  width: 400px; 
-  /* INCREASED: Bumped up to 12px so there is 6px of inner space after the borders */
-  height: 12px;  
-  background-color: rgba(255, 255, 255, 0.05); 
-  border: 3px solid #000000; 
-  border-radius: 0px; 
-  overflow: hidden; 
-  position: relative;
-}
+  /* --- TACTICAL HOUSING (Replaces the thin progress box) --- */
+  #loading-bar-container {
+    display: flex;
+    gap: 25px;
+    padding: 30px 50px;
+    background: linear-gradient(180deg, #1a1a24 0%, #0d0d14 100%);
+    border-radius: 15px;
+    border-top: 2px solid #2a2a35;
+    border-bottom: 6px solid #000;
+    box-shadow: 
+      0 20px 50px rgba(0,0,0,0.9),
+      inset 0 0 20px rgba(0,0,0,0.8);
+    position: relative;
+  }
 
-#progress-bar {
-  position: absolute;
-  width: 100px; /* DECREASED: Adjusted to fit the new narrower container */
-  height: 100%; 
-  background: linear-gradient(90deg, #991b1b 0%, #f97316 50%, #991b1b 100%); 
-  border-radius: 0px; /* UPDATED: Changed from 10px to 0px for box edges */
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
-  animation: flow-progress 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  left: -100px; /* UPDATED: Matches the new segment width */
-}
+  /* --- INVISIBLE PROGRESS BAR FOR JS SAFETY --- */
+  #progress-bar {
+    display: none; /* Keeps the ID in the DOM so JS doesn't break, but hides it visually */
+  }
 
-@keyframes flow-progress {
-  0% { left: -100px; opacity: 0; }
-  50% { opacity: 1; }
-  100% { left: 400px; opacity: 0; } /* UPDATED: Matches the new 400px container width */
-}
+  /* --- POLICE STAR ELEMENTS --- */
+  .star-wrapper {
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.05));
+    animation: policeGlow 2s infinite linear;
+  }
+
+  .star {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* The aggressive, angled police light beam */
+  .star::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(255, 0, 0, 1) 45%,      /* Piercing Red */
+      rgba(255, 255, 255, 1) 50%,  /* Blinding White */
+      rgba(0, 100, 255, 1) 55%,    /* Piercing Blue */
+      transparent 65%,
+      transparent 100%
+    );
+    transform: rotate(15deg); 
+    animation: policeSweep 2s infinite cubic-bezier(0.4, 0.0, 0.2, 1); 
+  }
+
+  /* --- STAGGERED TIMING --- */
+  .star-wrapper:nth-child(1) .star::before { animation-delay: 0.0s; }
+  .star-wrapper:nth-child(2) .star::before { animation-delay: 0.15s; }
+  .star-wrapper:nth-child(3) .star::before { animation-delay: 0.3s; }
+  .star-wrapper:nth-child(4) .star::before { animation-delay: 0.45s; }
+  .star-wrapper:nth-child(5) .star::before { animation-delay: 0.6s; }
+
+  .star-wrapper:nth-child(1) { animation-delay: 0.0s; }
+  .star-wrapper:nth-child(2) { animation-delay: 0.15s; }
+  .star-wrapper:nth-child(3) { animation-delay: 0.3s; }
+  .star-wrapper:nth-child(4) { animation-delay: 0.45s; }
+  .star-wrapper:nth-child(5) { animation-delay: 0.6s; }
+
+  /* --- ANIMATION KEYFRAMES --- */
+  @keyframes policeSweep {
+    0% { left: -150%; }
+    50% { left: 100%; } 
+    100% { left: 100%; } 
+  }
+
+  @keyframes policeGlow {
+    0%, 40%, 100% { filter: drop-shadow(0 0 2px rgba(255,255,255,0.05)); }
+    15% { filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.9)); }
+    20% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 1)); }
+    25% { filter: drop-shadow(0 0 20px rgba(0, 100, 255, 0.9)); }
+  }
+
+  @keyframes textPulse {
+    0%, 100% { opacity: 0.3; text-shadow: none; }
+    50% { opacity: 1; text-shadow: 0 0 15px rgba(0, 100, 255, 0.6); }
+  }
 
 
 /* --- Interactive Project Card Reveal --- */
