@@ -497,6 +497,21 @@ window.addEventListener('load', () => {
   }, 600); 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
 
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', (e) => {
+            // Prevent the default anchor link jump
+            e.preventDefault();
+
+            // Smooth scroll to the absolute top of the window
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
 
 
