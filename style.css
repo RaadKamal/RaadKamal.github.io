@@ -921,9 +921,24 @@
 
 }
 
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll-right {
+  /* 20s controls the speed. linear keeps it smooth. */
+  animation: scroll-right 20s linear infinite; 
+}
+
+/* Optional: Pauses the roll when a user hovers over a tool */
+.animate-scroll-right:hover {
+  animation-play-state: paused; 
+}
 
 
-/* Note: I did not include the 'subtle-fade' keyframes here because they are already in your existing CSS file! */
+
+
 
 
 
