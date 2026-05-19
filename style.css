@@ -928,7 +928,7 @@
 
 .animate-scroll-right {
   /* 20s controls the speed. linear keeps it smooth. */
-  animation: scroll-right 20s linear infinite; 
+  animation: scroll-right 14s linear infinite; 
 }
 
 /* Optional: Pauses the roll when a user hovers over a tool */
