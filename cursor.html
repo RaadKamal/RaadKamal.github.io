@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +50,7 @@
 <script>
 
 /* =========================================================
-   CANVAS SETUP
+   CANVAS SETUP & HIGH-DPI SUB-PIXEL RENDERING (16x AA)
    ========================================================= */
 
 const canvas =
@@ -73,7 +72,7 @@ const effects = [];
 
 
 /* =========================================================
-   WATER SETTINGS
+   WATER SETTINGS (CLEAN & BALANCED RIPPLE COUNT)
    ========================================================= */
 
 /*
@@ -84,24 +83,18 @@ const WATER_RADIUS = 105;
 
 /*
  * SLOW water wave.
-
- * The first wave takes roughly:
- *
- *   105 / 0.072 ≈ 1458 ms
- *
- * to reach the perimeter.
  */
 const WAVE_SPEED = 0.072;
 
 
 /*
- * Exactly THREE water waves.
+ * Reduced to exactly 3 prominent concentric water waves.
  */
 const WAVE_COUNT = 3;
 
 
 /*
- * Distance between the wave crests.
+ * Wider, well-spaced distance between wave crests.
  */
 const WAVE_DISTANCE = 25;
 
@@ -114,8 +107,6 @@ const WATER_LIFETIME = 2300;
 
 
 /*
- * IMPORTANT:
-
  * Once the water is COMPLETELY gone,
  * wait another 1.8 seconds before
  * the electrical event.
@@ -129,17 +120,23 @@ const SHOCK_DELAY = 1800;
 const SHOCK_DURATION = 850;
 
 
+/*
+ * Directional overhead light angle for vivid highlights.
+ */
+const LIGHT_ANGLE = -Math.PI * 0.55;
+
+
 /* =========================================================
-   RESIZE
+   RESIZE & 16X SUPERSAMPLING CONFIGURATION
    ========================================================= */
 
 function resize() {
-
-    dpr =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
+    /*
+     * Enforce a minimum 4x physical backing store scale
+     * (4x width * 4x height = 16x pixel density / sub-pixel anti-aliasing)
+     */
+    const baseDpr = window.devicePixelRatio || 1;
+    dpr = Math.max(baseDpr, 4);
 
     width =
         window.innerWidth;
@@ -170,6 +167,10 @@ function resize() {
         0,
         0
     );
+
+    /* Enable high-quality sub-pixel image smoothing */
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 }
 
 
@@ -274,13 +275,12 @@ function createEffect(
          */
         strength:
             random(
-                0.92,
-                1.08
+                0.95,
+                1.05
             ),
 
         /*
-         * Organic imperfections in the
-         * circular water surface.
+         * Organic distortion points.
          */
         distortion: [],
 
@@ -303,9 +303,6 @@ function createEffect(
     };
 
 
-    /*
-     * Generate subtle water irregularities.
-     */
     for (
         let i = 0;
         i < 240;
@@ -322,14 +319,13 @@ function createEffect(
 
             strength:
                 random(
-                    0.25,
-                    1.5
+                    0.2,
+                    0.8
                 ),
 
             frequency:
-                random(
-                    1.0,
-                    3.0
+                Math.floor(
+                    random(2, 5)
                 )
         });
     }
@@ -338,9 +334,6 @@ function createEffect(
     effects.push(effect);
 
 
-    /*
-     * Prevent excessive simultaneous effects.
-     */
     while (
         effects.length > 5
     ) {
@@ -355,25 +348,6 @@ function createEffect(
    WATER WAVE PHYSICS
    ========================================================= */
 
-/*
- * A damped outward-moving water wave.
-
- *
- * We approximate:
- *
- *     A(r,t) sin(k(r-vt))
- *
- * with:
- *
- * - radial spreading
- * - damping
- * - localized wave packet
- * - three different wave modes
- *
- * This produces broad crests and troughs instead
- * of simple glowing circles.
- */
-
 function waterDisplacement(
     radius,
     time,
@@ -381,30 +355,18 @@ function waterDisplacement(
     strength
 ) {
 
-    /*
-     * Large wavelengths give broad,
-     * recognizable water ripples.
-     */
     const wavelengths = [
-        47,
-        43,
-        39
+        45,
+        38,
+        32
     ];
 
-
-    /*
-     * Successive waves are weaker.
-     */
     const amplitudes = [
         1.00,
-        0.58,
-        0.30
+        0.72,
+        0.45
     ];
 
-
-    /*
-     * Slight dispersion between waves.
-     */
     const velocities = [
         0.063,
         0.067,
@@ -427,16 +389,10 @@ function waterDisplacement(
         wavelength;
 
 
-    /*
-     * Current leading edge.
-     */
     const front =
         time * velocity;
 
 
-    /*
-     * Outward travelling wave.
-     */
     const phase =
         k *
         (
@@ -445,9 +401,6 @@ function waterDisplacement(
         );
 
 
-    /*
-     * Local wave packet.
-     */
     const packet =
         Math.exp(
             -Math.pow(
@@ -458,38 +411,26 @@ function waterDisplacement(
         );
 
 
-    /*
-     * Circular geometric spreading.
-
-     * As circumference grows, energy spreads out.
-     */
     const spreading =
         1 /
         Math.sqrt(
             1 +
-            radius * 0.025
+            radius * 0.022
         );
 
 
-    /*
-     * Slow energy loss.
-     */
     const damping =
         Math.exp(
-            -time * 0.00068
+            -time * 0.00062
         );
 
 
-    /*
-     * The packet makes each crest feel
-     * localized rather than infinite.
-     */
     return (
         Math.sin(phase) *
         amplitude *
         (
-            0.22 +
-            packet * 1.25
+            0.25 +
+            packet * 1.35
         ) *
         spreading *
         damping *
@@ -510,10 +451,6 @@ function getWaterHeight(
 
     let result = 0;
 
-
-    /*
-     * Superposition of the three waves.
-     */
     for (
         let i = 0;
         i < WAVE_COUNT;
@@ -529,15 +466,10 @@ function getWaterHeight(
             );
     }
 
-
-    /*
-     * Extra radial energy falloff.
-     */
     result *=
         Math.exp(
-            -radius * 0.0025
+            -radius * 0.0022
         );
-
 
     return result;
 }
@@ -553,9 +485,7 @@ function getWaterSlope(
     effect
 ) {
 
-    const d =
-        1.3;
-
+    const d = 1.2;
 
     const left =
         getWaterHeight(
@@ -567,14 +497,12 @@ function getWaterSlope(
             effect
         );
 
-
     const right =
         getWaterHeight(
             radius + d,
             time,
             effect
         );
-
 
     return (
         right - left
@@ -585,191 +513,87 @@ function getWaterSlope(
 
 
 /* =========================================================
-   INITIAL IMPACT
+   INITIAL IMPACT BASIN (VIVID & BRIGHT)
    ========================================================= */
 
 function drawInitialImpact(
     effect
 ) {
 
-    /*
-     * Strong at beginning and quickly settles.
-     */
     const life =
         Math.exp(
-            -effect.age * 0.011
+            -effect.age * 0.002
         );
 
-
     if (
-        life < 0.01
+        life < 0.01 ||
+        effect.age >= WATER_LIFETIME
     ) {
         return;
     }
 
+    const fadeOut =
+        1 -
+        smoothstep(
+            WATER_LIFETIME * 0.65,
+            WATER_LIFETIME,
+            effect.age
+        );
 
-    const radius =
-        3 +
-        effect.age * 0.012;
+    const alpha = life * fadeOut * 0.92;
 
+    const cavityRadius =
+        16 +
+        Math.sin(effect.age * 0.007) * 3.5;
 
-    /*
-     * Soft light on the initial water depression.
-     */
-    const gradient =
+    const poolGrad =
         ctx.createRadialGradient(
             effect.x,
             effect.y,
             0,
             effect.x,
             effect.y,
-            radius * 5
+            cavityRadius * 2.6
         );
 
-
-    gradient.addColorStop(
+    poolGrad.addColorStop(
         0,
-
-        `rgba(
-            230,
-            244,
-            247,
-            ${life * 0.48}
-        )`
+        `rgba(4, 18, 38, ${alpha * 0.95})`
     );
-
-
-    gradient.addColorStop(
-        0.4,
-
-        `rgba(
-            130,
-            175,
-            185,
-            ${life * 0.12}
-        )`
+    poolGrad.addColorStop(
+        0.35,
+        `rgba(20, 75, 130, ${alpha * 0.8})`
     );
-
-
-    gradient.addColorStop(
+    poolGrad.addColorStop(
+        0.58,
+        `rgba(130, 215, 255, ${alpha * 0.85})`
+    );
+    poolGrad.addColorStop(
+        0.82,
+        `rgba(15, 55, 100, ${alpha * 0.6})`
+    );
+    poolGrad.addColorStop(
         1,
-
-        "rgba(0,0,0,0)"
+        "rgba(0, 0, 0, 0)"
     );
-
 
     ctx.save();
-
-    ctx.fillStyle =
-        gradient;
-
-
+    ctx.fillStyle = poolGrad;
     ctx.beginPath();
-
     ctx.arc(
         effect.x,
         effect.y,
-        radius * 5,
+        cavityRadius * 2.6,
         0,
         Math.PI * 2
     );
-
     ctx.fill();
-
     ctx.restore();
 }
 
 
 /* =========================================================
-   SMALL WATER DROPLETS
-   ========================================================= */
-
-function drawWaterDroplets(
-    effect
-) {
-
-    /*
-     * Only during the initial impact.
-     */
-    if (
-        effect.age > 320
-    ) {
-        return;
-    }
-
-
-    const life =
-        1 -
-        effect.age / 320;
-
-
-    /*
-     * Keep this very restrained.
-     */
-    for (
-        let i = 0;
-        i < 7;
-        i++
-    ) {
-
-        const angle =
-            (
-                i / 7
-            ) *
-            Math.PI * 2;
-
-
-        const distance =
-            6 +
-            effect.age * 0.024;
-
-
-        const x =
-            effect.x +
-            Math.cos(angle) *
-            distance;
-
-
-        const y =
-            effect.y +
-            Math.sin(angle) *
-            distance;
-
-
-        ctx.save();
-
-        ctx.beginPath();
-
-        ctx.arc(
-            x,
-            y,
-            random(
-                0.5,
-                1.4
-            ),
-            0,
-            Math.PI * 2
-        );
-
-
-        ctx.fillStyle =
-            `rgba(
-                210,
-                235,
-                240,
-                ${life * 0.32}
-            )`;
-
-
-        ctx.fill();
-
-        ctx.restore();
-    }
-}
-
-
-/* =========================================================
-   DRAW ONE WATER WAVE
+   DRAW VIVID, CLEAN WATER WAVE[cite: 1]
    ========================================================= */
 
 function drawWaterWave(
@@ -777,17 +601,10 @@ function drawWaterWave(
     waveIndex
 ) {
 
-    /*
-     * Position of the outermost wave.
-     */
     const leadingFront =
         effect.age *
         WAVE_SPEED;
 
-
-    /*
-     * Position each of the three waves.
-     */
     const radius =
         leadingFront -
         waveIndex * WAVE_DISTANCE;
@@ -801,42 +618,35 @@ function drawWaterWave(
     }
 
 
-    /*
-     * Water slowly loses intensity.
-     */
     const ageFade =
         Math.exp(
-            -effect.age * 0.00033
-        );
+            -effect.age * 0.00038
+        ) *
+        (1 - smoothstep(WATER_LIFETIME * 0.75, WATER_LIFETIME, effect.age));
 
 
-    /*
-     * Fade as it approaches the maximum radius.
-     */
     const radiusFade =
         1 -
         smoothstep(
-            WATER_RADIUS - 12,
-            WATER_RADIUS + 4,
+            WATER_RADIUS - 18,
+            WATER_RADIUS,
             radius
         );
 
 
-    /*
-     * Three visible amplitudes.
-     */
     const waveStrength =
         [
             1.00,
-            0.62,
-            0.35
+            0.75,
+            0.50
         ][waveIndex];
 
 
     const visibility =
         ageFade *
         radiusFade *
-        waveStrength;
+        waveStrength *
+        0.98;
 
 
     if (
@@ -846,9 +656,6 @@ function drawWaterWave(
     }
 
 
-    /*
-     * Actual water surface displacement.
-     */
     const height =
         getWaterHeight(
             radius,
@@ -856,12 +663,6 @@ function drawWaterWave(
             effect
         );
 
-
-    /*
-     * Surface slope.
-
-     * A steep crest catches more reflected light.
-     */
     const slope =
         Math.abs(
             getWaterSlope(
@@ -871,259 +672,164 @@ function drawWaterWave(
             )
         );
 
-
     const highlight =
         clamp(
-            slope * 4.0,
+            slope * 5.2,
             0,
             1
         );
 
+    const bandWidth =
+        clamp(
+            8.0 + radius * 0.05 - waveIndex * 0.6,
+            6.0,
+            14.0
+        );
+
 
     /* ======================================================
-       WATER CONTOUR
+       1. VIVID 3D VOLUMETRIC RING SHADING
        ====================================================== */
 
-    const points = 260;
+    const innerR = Math.max(0.5, radius - bandWidth * 0.75);
+    const outerR = radius + bandWidth * 0.75;
 
+    const ringGrad =
+        ctx.createRadialGradient(
+            effect.x,
+            effect.y,
+            innerR,
+            effect.x,
+            effect.y,
+            outerR
+        );
+
+    ringGrad.addColorStop(
+        0.0,
+        "rgba(2, 10, 24, 0)"
+    );
+    ringGrad.addColorStop(
+        0.25,
+        `rgba(4, 18, 38, ${visibility * 0.92})`
+    );
+    ringGrad.addColorStop(
+        0.50,
+        `rgba(45, 130, 205, ${visibility * 0.65})`
+    );
+    ringGrad.addColorStop(
+        0.72,
+        `rgba(220, 248, 255, ${visibility * (0.65 + highlight * 0.35)})`
+    );
+    ringGrad.addColorStop(
+        0.88,
+        `rgba(8, 32, 65, ${visibility * 0.82})`
+    );
+    ringGrad.addColorStop(
+        1.0,
+        "rgba(2, 10, 24, 0)"
+    );
+
+    ctx.save();
     ctx.beginPath();
+    ctx.arc(
+        effect.x,
+        effect.y,
+        outerR,
+        0,
+        Math.PI * 2
+    );
+    ctx.arc(
+        effect.x,
+        effect.y,
+        innerR,
+        0,
+        Math.PI * 2,
+        true
+    );
+    ctx.fillStyle = ringGrad;
+    ctx.fill();
+    ctx.restore();
 
 
-    for (
-        let i = 0;
-        i <= points;
-        i++
-    ) {
+    /* ======================================================
+       2. CLEAN REFRACTIVE CRESCENTS & SPECULAR ARCS[cite: 1]
+       ====================================================== */
 
-        const t =
-            i / points;
+    const segments = 90;
+    const stepAngle = (Math.PI * 2) / segments;
 
+    for (let i = 0; i < segments; i++) {
+        const a0 = i * stepAngle;
+        const a1 = (i + 1.08) * stepAngle;
+        const midAngle = (a0 + a1) * 0.5;
 
-        const angle =
-            t *
-            Math.PI * 2;
+        const d = effect.distortion[i % effect.distortion.length];
 
-
-        const d =
-            effect.distortion[
-                i %
-                effect.distortion.length
-            ];
-
-
-        /*
-         * Very subtle natural distortion.
-
-         * This keeps the wave organic while preserving
-         * its actual circular propagation.
-         */
         const organic =
             d.strength *
             Math.sin(
                 d.phase +
-                effect.age * 0.0012 +
-                angle * d.frequency
+                effect.age * 0.0022 +
+                midAngle * d.frequency
             );
 
+        const localR = radius + organic + height * 2.0;
 
-        /*
-         * Actual crest/trough displacement.
-         */
-        const radialWave =
-            height * 6.5;
+        const lightAlignment = Math.cos(midAngle - LIGHT_ANGLE);
+        const crescentMask = Math.pow(Math.abs(lightAlignment), 0.7);
+        const troughStrength = visibility * crescentMask;
 
-
-        const r =
-            radius +
-            organic +
-            radialWave;
-
-
-        const x =
-            effect.x +
-            Math.cos(angle) * r;
-
-
-        const y =
-            effect.y +
-            Math.sin(angle) * r;
-
-
-        if (
-            i === 0
-        ) {
-
-            ctx.moveTo(
-                x,
-                y
+        if (troughStrength > 0.03) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(
+                effect.x,
+                effect.y,
+                localR - bandWidth * 0.2,
+                a0,
+                a1
             );
+            ctx.strokeStyle =
+                `rgba(1, 6, 15, ${clamp(troughStrength * 0.95, 0, 0.95)})`;
+            ctx.lineWidth =
+                (1.2 + crescentMask * 2.2) * waveStrength;
+            ctx.lineCap = "round";
+            ctx.stroke();
+            ctx.restore();
+        }
 
-        } else {
+        const specAlignment = Math.max(0, Math.cos(midAngle - LIGHT_ANGLE));
+        const backSpec = Math.max(0, -Math.cos(midAngle - LIGHT_ANGLE)) * 0.7;
+        const specIntensity =
+            visibility *
+            (Math.pow(specAlignment, 1.8) + Math.pow(backSpec, 2.2)) *
+            (0.6 + highlight * 0.5);
 
-            ctx.lineTo(
-                x,
-                y
+        if (specIntensity > 0.02) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(
+                effect.x,
+                effect.y,
+                localR + bandWidth * 0.16,
+                a0,
+                a1
             );
-
+            ctx.strokeStyle =
+                `rgba(240, 252, 255, ${clamp(specIntensity * 0.98, 0, 0.98)})`;
+            ctx.lineWidth =
+                1.0 + specIntensity * 1.6;
+            ctx.lineCap = "round";
+            ctx.stroke();
+            ctx.restore();
         }
     }
-
-
-    ctx.closePath();
-
-
-    /* ======================================================
-       DARK SIDE / TROUGH
-       ====================================================== */
-
-    ctx.save();
-
-    ctx.strokeStyle =
-        `rgba(
-            22,
-            59,
-            72,
-            ${visibility * 0.9}
-        )`;
-
-
-    ctx.lineWidth =
-        1.35;
-
-
-    ctx.shadowBlur = 0;
-
-    ctx.stroke();
-
-    ctx.restore();
-
-
-    /* ======================================================
-       BRIGHT WATER CREST
-       ====================================================== */
-
-    ctx.save();
-
-
-    /*
-     * This is a water reflection,
-     * NOT an electric/neon glow.
-     */
-    ctx.strokeStyle =
-        `rgba(
-            220,
-            237,
-            239,
-            ${visibility *
-              (
-                  0.32 +
-                  highlight * 0.75
-              )}
-        )`;
-
-
-    ctx.lineWidth =
-        1.0 +
-        highlight * 1.15;
-
-
-    ctx.shadowBlur = 0;
-
-
-    ctx.stroke();
-
-    ctx.restore();
-
-
-    /* ======================================================
-       SOFT INNER REFLECTION
-       ====================================================== */
-
-    ctx.save();
-
-    ctx.beginPath();
-
-    ctx.arc(
-        effect.x,
-        effect.y,
-        radius - 2.8,
-        0,
-        Math.PI * 2
-    );
-
-
-    ctx.strokeStyle =
-        `rgba(
-            150,
-            198,
-            207,
-            ${visibility * 0.20}
-        )`;
-
-
-    ctx.lineWidth = 2;
-
-    ctx.filter =
-        "blur(1px)";
-
-    ctx.stroke();
-
-    ctx.restore();
-
-
-    /* ======================================================
-       OUTER DARK TROUGH
-       ====================================================== */
-
-    ctx.save();
-
-    ctx.beginPath();
-
-    ctx.arc(
-        effect.x,
-        effect.y,
-        radius + 3.2,
-        0,
-        Math.PI * 2
-    );
-
-
-    ctx.strokeStyle =
-        `rgba(
-            8,
-            27,
-            37,
-            ${visibility * 0.60}
-        )`;
-
-
-    ctx.lineWidth = 1;
-
-    ctx.filter = "none";
-
-    ctx.stroke();
-
-    ctx.restore();
 }
 
 
 /* =========================================================
    POST-ELECTRIC SHOCK
    ========================================================= */
-
-/*
- * IMPORTANT:
-
- * This function is NOT called while the water is moving.
-
- * The water completely disappears first.
-
- * Then there is a long period of silence.
-
- * THEN this event happens.
-
- * The shock uses the former water radius.
- */
 
 function drawPostElectricShock(
     effect
@@ -1148,9 +854,6 @@ function drawPostElectricShock(
     }
 
 
-    /*
-     * Strong and obvious at the start.
-     */
     const intensity =
         Math.pow(
             1 - progress,
@@ -1161,10 +864,6 @@ function drawPostElectricShock(
     const radius =
         WATER_RADIUS;
 
-
-    /* ======================================================
-       INITIAL ELECTRICAL FLASH
-       ====================================================== */
 
     if (
         progress < 0.20
@@ -1191,27 +890,23 @@ function drawPostElectricShock(
 
         ctx.strokeStyle =
             `rgba(
-                235,
-                252,
+                240,
+                254,
                 255,
-                ${flash * 0.62}
+                ${flash * 0.85}
             )`;
 
 
-        ctx.lineWidth =
-            4 +
-            flash * 4;
+        ctx.lineWidth = 5 + flash * 5;
 
 
-        ctx.shadowBlur =
-            25 +
-            flash * 25;
+        ctx.shadowBlur = 30 + flash * 25;
 
 
         ctx.shadowColor =
             `rgba(
-                30,
-                210,
+                40,
+                220,
                 255,
                 ${flash}
             )`;
@@ -1223,10 +918,6 @@ function drawPostElectricShock(
         ctx.restore();
     }
 
-
-    /* ======================================================
-       OUTER ELECTRIC AURA
-       ====================================================== */
 
     ctx.save();
 
@@ -1243,27 +934,23 @@ function drawPostElectricShock(
 
     ctx.strokeStyle =
         `rgba(
-            20,
-            200,
+            30,
+            210,
             255,
-            ${intensity * 0.30}
+            ${intensity * 0.5}
         )`;
 
 
-    ctx.lineWidth =
-        5 +
-        intensity * 4;
+    ctx.lineWidth = 6;
 
 
-    ctx.shadowBlur =
-        22 +
-        intensity * 20;
+    ctx.shadowBlur = 25;
 
 
     ctx.shadowColor =
         `rgba(
-            20,
-            190,
+            25,
+            200,
             255,
             ${intensity}
         )`;
@@ -1275,20 +962,13 @@ function drawPostElectricShock(
     ctx.restore();
 
 
-    /* ======================================================
-       MOVING ELECTRIC ARCS
-       ====================================================== */
-
-    /*
-     * The arcs move around the perimeter.
-     */
     const movingAngle =
         effect.shockOrigin +
         performance.now() *
         0.0038;
 
 
-    const arcCount = 18;
+    const arcCount = 22;
 
 
     for (
@@ -1306,24 +986,17 @@ function drawPostElectricShock(
             Math.PI * 2;
 
 
-        /*
-         * Gaps make the shock feel like actual
-         * electrical discharge instead of a ring.
-         */
         if (
-            Math.random() > 0.57
+            Math.random() > 0.52
         ) {
             continue;
         }
 
 
-        /*
-         * Length of this lightning section.
-         */
         const arcSize =
             random(
-                0.07,
-                0.19
+                0.08,
+                0.20
             );
 
 
@@ -1359,9 +1032,6 @@ function drawPostElectricShock(
         );
 
 
-        /*
-         * Jagged lightning path.
-         */
         const steps = 8;
 
 
@@ -1379,8 +1049,8 @@ function drawPostElectricShock(
             r =
                 radius +
                 random(
-                    -9,
-                    9
+                    -8,
+                    8
                 );
 
 
@@ -1396,9 +1066,6 @@ function drawPostElectricShock(
                 r;
 
 
-            /*
-             * Sharp radial jitter.
-             */
             x += random(-3, 3);
             y += random(-3, 3);
 
@@ -1410,10 +1077,6 @@ function drawPostElectricShock(
         }
 
 
-        /* ==================================================
-           BRIGHT CORE
-           ================================================== */
-
         ctx.save();
 
 
@@ -1422,89 +1085,20 @@ function drawPostElectricShock(
                 245,
                 255,
                 255,
-                ${intensity *
-                  random(
-                      0.70,
-                      1
-                  )}
-            )`;
-
-
-        ctx.lineWidth =
-            random(
-                1.2,
-                2.5
-            );
-
-
-        ctx.shadowBlur =
-            18 +
-            intensity * 18;
-
-
-        ctx.shadowColor =
-            `rgba(
-                25,
-                210,
-                255,
                 ${intensity}
             )`;
 
 
-        ctx.stroke();
+        ctx.lineWidth = random(1.5, 2.8);
 
 
-        ctx.restore();
-
-
-        /* ==================================================
-           WIDER ELECTRIC GLOW
-           ================================================== */
-
-        /*
-         * Draw a broader low-opacity stroke underneath.
-         */
-        ctx.save();
-
-
-        ctx.beginPath();
-
-
-        /*
-         * Reconstruct approximate arc as a simple glow.
-         */
-        ctx.arc(
-            effect.x,
-            effect.y,
-            radius + random(-1, 1),
-            angle,
-            angle + arcSize
-        );
-
-
-        ctx.strokeStyle =
-            `rgba(
-                20,
-                180,
-                255,
-                ${intensity * 0.32}
-            )`;
-
-
-        ctx.lineWidth =
-            random(
-                3,
-                5
-            );
-
-
-        ctx.shadowBlur = 20;
+        ctx.shadowBlur = 22;
 
 
         ctx.shadowColor =
             `rgba(
-                10,
-                190,
+                35,
+                220,
                 255,
                 ${intensity}
             )`;
@@ -1517,13 +1111,9 @@ function drawPostElectricShock(
     }
 
 
-    /* ======================================================
-       BRIGHT SPARKS
-       ====================================================== */
-
     for (
         let i = 0;
-        i < 24;
+        i < 28;
         i++
     ) {
 
@@ -1534,14 +1124,11 @@ function drawPostElectricShock(
             );
 
 
-        /*
-         * Sparks remain close to the perimeter.
-         */
         const distance =
             radius +
             random(
                 -3,
-                13
+                14
             );
 
 
@@ -1559,7 +1146,7 @@ function drawPostElectricShock(
 
         const size =
             random(
-                0.8,
+                1.0,
                 3.5
             );
 
@@ -1588,61 +1175,19 @@ function drawPostElectricShock(
             )`;
 
 
-        ctx.shadowBlur =
-            20;
+        ctx.shadowBlur = 20;
 
 
         ctx.shadowColor =
             `rgba(
-                30,
-                215,
+                35,
+                220,
                 255,
                 ${intensity}
             )`;
 
 
         ctx.fill();
-
-
-        /*
-         * Some sparks shoot a tiny distance outward.
-         */
-        if (
-            Math.random() > 0.48
-        ) {
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                x,
-                y
-            );
-
-
-            ctx.lineTo(
-                x + random(-8, 8),
-                y + random(-8, 8)
-            );
-
-
-            ctx.strokeStyle =
-                `rgba(
-                    180,
-                    240,
-                    255,
-                    ${intensity * 0.90}
-                )`;
-
-
-            ctx.lineWidth = 1.2;
-
-
-            ctx.shadowBlur = 12;
-
-
-            ctx.stroke();
-        }
-
 
         ctx.restore();
     }
@@ -1668,11 +1213,6 @@ function animate(now) {
         now;
 
 
-    /*
-     * Fully clear the canvas every frame.
-
-     * No unwanted full-screen trails.
-     */
     ctx.clearRect(
         0,
         0,
@@ -1695,25 +1235,10 @@ function animate(now) {
             delta;
 
 
-        /* =================================================
-           PHASE 1:
-           INITIAL WATER IMPACT
-           ================================================= */
-
         drawInitialImpact(
             effect
         );
 
-
-        drawWaterDroplets(
-            effect
-        );
-
-
-        /* =================================================
-           PHASE 2:
-           THREE SLOW WATER WAVES
-           ================================================= */
 
         if (
             effect.age <
@@ -1734,36 +1259,10 @@ function animate(now) {
         }
 
 
-        /* =================================================
-           PHASE 3:
-           LONG SILENT DELAY
-           ================================================= */
-
-        /*
-         * There is deliberately NOTHING drawn here.
-
-         * This gives the effect its:
-         *
-         *     water
-         *       ↓
-         *     fade away
-         *       ↓
-         *     silence
-         *       ↓
-         *     shock
-         *
-         * character.
-         */
-
         const shockStart =
             WATER_LIFETIME +
             SHOCK_DELAY;
 
-
-        /* =================================================
-           PHASE 4:
-           DELAYED ELECTRIC SHOCK
-           ================================================= */
 
         if (
             !effect.shockStarted &&
@@ -1778,10 +1277,6 @@ function animate(now) {
                 0;
 
 
-            /*
-             * Random starting point around
-             * the old water perimeter.
-             */
             effect.shockOrigin =
                 Math.random() *
                 Math.PI *
@@ -1802,11 +1297,6 @@ function animate(now) {
             );
         }
 
-
-        /* =================================================
-           PHASE 5:
-           CLEANUP
-           ================================================= */
 
         if (
             effect.shockStarted &&
@@ -1836,4 +1326,3 @@ requestAnimationFrame(
 
 </body>
 </html>
-```
