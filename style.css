@@ -109,7 +109,7 @@
 }
 
         body {
-            margin: 0;           /* remove browser default margin */
+            margin: 0;            /* remove browser default margin */
             padding: 0;     
             font-family: "Allerta Stencil", Sans-serif;
             scroll-behavior: smooth;
@@ -229,19 +229,19 @@
 
             /*
             
-                        * Applies the animation:
+                         * Applies the animation:
             
-                        * - 'subtle-fade': The name of our animation defined below.
+                         * - 'subtle-fade': The name of our animation defined below.
             
-                        * - '3s': The duration of one full fade cycle (fade down AND fade up).
+                         * - '3s': The duration of one full fade cycle (fade down AND fade up).
             
-                        * - 'infinite': The animation will repeat forever.
+                         * - 'infinite': The animation will repeat forever.
             
-                        * - 'ease-in-out': This timing function makes the animation start slowly,
+                         * - 'ease-in-out': This timing function makes the animation start slowly,
             
-                        * speed up in the middle, and slow down at the end, for a smooth fade.
+                         * speed up in the middle, and slow down at the end, for a smooth fade.
             
-                        */
+                         */
 
             animation: subtle-fade 3s infinite ease-in-out;
 
@@ -251,11 +251,11 @@
 
         /*
         
-                * Keyframes for the 'subtle-fade' animation:
+                 * Keyframes for the 'subtle-fade' animation:
         
-                * Defines how the text's opacity changes over the animation's duration.
+                 * Defines how the text's opacity changes over the animation's duration.
         
-                */
+                 */
 
         @keyframes subtle-fade {
 
@@ -355,7 +355,7 @@
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 20px;
-
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 8px 42px 0 rgba(0, 0, 0, 0.8);
             transition: all 0.3s ease;
             color: #f3f4f6;
@@ -363,6 +363,7 @@
 
         .glass-card:hover {
             background: rgba(0, 0, 0, 0);
+            border-color: rgba(255, 255, 255, 0.25);
             box-shadow: 0 8px 42px 0 rgba(0, 0, 0, 0.9);
             transform: translateY(-2px);
         }
@@ -371,7 +372,7 @@
             background: rgba(20, 20, 20, 0.2);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
@@ -601,7 +602,7 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
-
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.3s ease;
         }
 
@@ -640,6 +641,7 @@
             border-radius: 16px;
             padding: 16px;
             margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.3s ease;
         }
 
@@ -710,6 +712,7 @@
             background: rgba(20, 20, 20, 0.15);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         /* Full width navigation */
